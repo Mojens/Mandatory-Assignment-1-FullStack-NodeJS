@@ -13,6 +13,7 @@ signUpForm.style.display = 'none';
 formContainer.style.height = '75vh';
 
 signInBtn.addEventListener('click', function () {
+    document.title = 'Sign In';
     formContainer.style.height = '75vh';
     signInForm.style.display = 'block';
     signUpForm.style.display = 'none';
@@ -20,12 +21,14 @@ signInBtn.addEventListener('click', function () {
 });
 
 signUpBtn.addEventListener('click', function () {
+    document.title = 'Sign Up';
     formContainer.style.height = '75vh';
     signUpForm.style.display = 'block';
     signInForm.style.display = 'none';
     forgotPwdForm.style.display = 'none';
 });
 forgotPwdBtn.addEventListener('click', function () {
+    document.title = 'Forgot Password';
     formContainer.style.height = '65vh';
     signUpForm.style.display = 'none';
     signInForm.style.display = 'none';
