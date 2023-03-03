@@ -1,6 +1,6 @@
 const signInBtn = document.getElementById('sign-in-toogle');
 const signUpBtn = document.getElementById('sign-up-toogle');
-const forgotPwdBtn = document.getElementById('forgot-pwd-btn');
+const forgotPwdBtn = document.getElementById('forgot-pwd-toogle');
 
 const signInForm = document.getElementById('sign-in-form');
 const signUpForm = document.getElementById('sign-up-form');
@@ -10,11 +10,11 @@ const formContainer = document.getElementById('form-containers');
 
 signInForm.style.display = 'block';
 signUpForm.style.display = 'none';
-formContainer.style.height = '75vh';
+formContainer.style.height = '70vh';
 
 signInBtn.addEventListener('click', function () {
     document.title = 'Sign In';
-    formContainer.style.height = '75vh';
+    formContainer.style.height = '70vh';
     signInForm.style.display = 'block';
     signUpForm.style.display = 'none';
     forgotPwdForm.style.display = 'none';
@@ -29,7 +29,7 @@ signUpBtn.addEventListener('click', function () {
 });
 forgotPwdBtn.addEventListener('click', function () {
     document.title = 'Forgot Password';
-    formContainer.style.height = '65vh';
+    formContainer.style.height = '54vh';
     signUpForm.style.display = 'none';
     signInForm.style.display = 'none';
     forgotPwdForm.style.display = 'block';
