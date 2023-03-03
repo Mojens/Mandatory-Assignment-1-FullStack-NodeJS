@@ -1,0 +1,33 @@
+{
+  "name": "mandatory1-assignment",
+  "version": "0.0.1",
+  "description": "This is a mandatory assignment for my class Full Stack Node JS",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mojens/Mandatory-Assignment-1-FullStack-NodeJS.git"
+  },
+  "keywords": [
+    "node",
+    "javascript",
+    "fullstack",
+    "documentation",
+    "nodejs",
+    "express",
+    "nodemon"
+  ],
+  "author": "Mohammad Murtada",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mojens/Mandatory-Assignment-1-FullStack-NodeJS/issues"
+  },
+  "homepage": "https://github.com/Mojens/Mandatory-Assignment-1-FullStack-NodeJS#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.21"
+  }
+}
