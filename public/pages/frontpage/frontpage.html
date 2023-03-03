@@ -10,15 +10,15 @@
 <body>
     <div class="navigation-wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#" style="margin-left: 20px;margin-right: 20px;">Mandatory 1</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav m-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Features</a>
@@ -38,9 +38,10 @@
                         </div>
                     </li>
                 </ul>
-                <div class="login-button m-lg-auto">
-                    <a><button class="btn btn-outline-success my-2 my-sm-auto" type="submit">Login</button></a>
+                <div class="login-button d-flex justify-content-end ml-auto" style="margin-right: 20px;">
+                    <a href="/login"><button class="btn btn-outline-success my-2 my-sm-auto" type="submit">Login</button></a>
                 </div>
+                
             </div>
         </nav>
     </div>
