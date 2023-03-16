@@ -30,24 +30,29 @@ document.getElementById("nav").innerHTML = DOMPurify.sanitize(`<div class="navig
           Node.js
         </a>
         <div class="dropdown-menu" aria-labelledby="nodejsDropdown">
-          <a class="dropdown-item" href="intro/nodejs">Intro to Node.js</a>
-          <a class="dropdown-item" href="crud">CRUD</a>
+          <a class="dropdown-item" href="nodejs">Intro to Node.js</a>
           <a class="dropdown-item" href="express">Express</a>
+          <a class="dropdown-item" href="html-express">HTML and Express</a>
+          <a class="dropdown-item" href="package-json">package.json</a>
+          <a class="dropdown-item" href="server-rendering">SSR (Server-side rendering)</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="rest-api" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Rest API
+        </a>
+        <div class="dropdown-menu" aria-labelledby="rest-api">
+          <a class="dropdown-item" href="nodejs">Intro to Node.js</a>
+          <a class="dropdown-item" href="crud">CRUD</a>
           <a class="dropdown-item" href="fetch">Fetch</a>
           <a class="dropdown-item" href="get-request">GET Request (Parameter and Query)</a>
-          <a class="dropdown-item" href="package-json">package.json</a>
-          <a class="dropdown-item" href="rest-api">REST API Conventions</a>
-          <a class="dropdown-item" href="ssr">SSR (Server-side rendering)</a>
+          <a class="dropdown-item" href="rest">rest</a>
+          
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="html-express">HTML and Express</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="#">Deployment</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact Us</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">

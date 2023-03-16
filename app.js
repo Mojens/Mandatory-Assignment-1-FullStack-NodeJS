@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 const app = express();
-const port = 8080;
+const port = 8081;
 
 app.use(express.static("public"));
 
@@ -41,9 +41,38 @@ app.get('/time/', (req, res) => {
 
 // Node.js
 
-app.get('/intro/nodejs/', (req, res) => {
+app.get('/nodejs/', (req, res) => {
     res.sendFile(path.resolve('public/pages/nodejs/intro-to-node/intro-to-node.html'));
-})
+});
+
+app.get('/express/', (req, res) => {
+    res.sendFile(path.resolve('public/pages/nodejs/express/express.html'));
+});
+
+app.get('/html-express/', (req, res) => {
+    res.sendFile(path.resolve('public/pages/nodejs/html-express/html-express.html'));
+});
+
+app.get('/package-json', (req, res) => {
+    res.sendFile(path.resolve('public/pages/nodejs/package-json/package-json.html'));
+});
+
+app.get('/server-rendering', (req, res) => {
+    res.sendFile(path.resolve('public/pages/nodejs/server-rendering/server-rendering.html'));
+});
+
+
+// Rest API
+
+
+
+
+
+
+
+
+
+
 
 app.listen(port, (error) => {
     if (error) {
