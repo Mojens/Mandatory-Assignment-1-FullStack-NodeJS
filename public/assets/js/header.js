@@ -30,7 +30,7 @@ document.getElementById("nav").innerHTML = DOMPurify.sanitize(`<div class="navig
           Node.js
         </a>
         <div class="dropdown-menu" aria-labelledby="nodejsDropdown">
-          <a class="dropdown-item" href="intro">Intro to Node.js</a>
+          <a class="dropdown-item" href="intro/nodejs">Intro to Node.js</a>
           <a class="dropdown-item" href="crud">CRUD</a>
           <a class="dropdown-item" href="express">Express</a>
           <a class="dropdown-item" href="fetch">Fetch</a>
