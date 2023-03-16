@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 const app = express();
-const port = 8081;
+const port = 8080;
 
 app.use(express.static("public"));
 
@@ -64,9 +64,28 @@ app.get('/server-rendering', (req, res) => {
 
 // Rest API
 
+app.get('/api-convention/', (req, res) => {
+    res.sendFile(path.resolve('public/pages/rest-api/api-convention/api-convention.html'));
+});
+
+app.get('/crud/', (req, res) => {
+    res.sendFile(path.resolve('public/pages/rest-api/crud/crud.html'));
+});
+
+app.get('/fetch/', (req, res) => {
+    res.sendFile(path.resolve('public/pages/rest-api/fetch/fetch.html'));
+});
+
+app.get('/get-request/', (req, res) => {
+    res.sendFile(path.resolve('public/pages/rest-api/get-request/get-request.html'));
+});
 
 
+// Deployment
 
+app.get('/deployment/', (req, res) => {
+    res.sendFile(path.resolve('public/pages/deployment/deployment.html'));
+});
 
 
 

@@ -43,16 +43,16 @@ document.getElementById("nav").innerHTML = DOMPurify.sanitize(`<div class="navig
           Rest API
         </a>
         <div class="dropdown-menu" aria-labelledby="rest-api">
-          <a class="dropdown-item" href="nodejs">Intro to Node.js</a>
+        <a class="dropdown-item" href="api-convention">API convention</a>
           <a class="dropdown-item" href="crud">CRUD</a>
           <a class="dropdown-item" href="fetch">Fetch</a>
           <a class="dropdown-item" href="get-request">GET Request (Parameter and Query)</a>
-          <a class="dropdown-item" href="rest">rest</a>
+          
           
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Deployment</a>
+        <a class="nav-link" href="deployment">Deployment</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
