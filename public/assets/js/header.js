@@ -35,6 +35,8 @@ document.getElementById("nav").innerHTML = DOMPurify.sanitize(`<div class="navig
           <a class="dropdown-item" href="html-express">HTML and Express</a>
           <a class="dropdown-item" href="package-json">package.json</a>
           <a class="dropdown-item" href="server-rendering">SSR (Server-side rendering)</a>
+          <a class="dropdown-item" href="type-module">CommonJS vs type module in Nodejs</a>
+          <a class="dropdown-item" href="client-server-redirection">Client-side redirection vs server-side redirection</a>
         </div>
       </li>
       <li class="nav-item dropdown">

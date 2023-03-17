@@ -61,6 +61,14 @@ app.get('/server-rendering', (req, res) => {
     res.sendFile(path.resolve('public/pages/nodejs/server-rendering/server-rendering.html'));
 });
 
+app.get('/client-server-redirection', (req, res) => {
+    res.sendFile(path.resolve('public/pages/nodejs/client-vs-server-redirection/client-vs-server-redirection.html'));
+});
+
+app.get('/type-module', (req, res) => {
+    res.sendFile(path.resolve('public/pages/nodejs/commonjs-vs-nodejs-type-module/commonjs-vs-module.html'));
+});
+
 
 // Rest API
 
