@@ -1,22 +1,24 @@
 import express from 'express';
 import path from 'path';
+import { loginPage, frontPage, variablesPage } from './util/pageGenerator.js';
 const app = express();
 const port = 8080;
 
 app.use(express.static("public"));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve('public/pages/frontpage/frontpage.html'));
+    res.send(frontPage);
 });
 
 app.get('/login/', (req, res) => {
-    res.sendFile(path.resolve('public/pages/auth/auth.html'));
+    res.send(loginPage);
 });     
 
 // JavaScript
 
 app.get('/variables/', (req, res) => {
-    res.sendFile(path.resolve('public/pages/javascript/variables/variables.html'));
+    // res.sendFile(path.resolve('public/pages/javascript/variables/variables.html'));
+    res.send(variablesPage);
 });
 
 app.get('/clean-code/', (req, res) => {
