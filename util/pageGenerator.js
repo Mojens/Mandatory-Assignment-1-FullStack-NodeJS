@@ -15,27 +15,27 @@ const loginPage = templateEngine.renderPage(templateEngine.readPage("./public/pa
 /* JavaScript */
 
 const variablesPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/variables/variables.html"), {
-    tabTitle: "Variables",
+    tabTitle: "JS | Variables",
 });
 
 const cleanCodePage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/clean-code/clean-code.html"), {
-    tabTitle: "Clean Code & Code Conventions",
+    tabTitle: "JS | Clean Code & Code Conventions",
 });
 
 const variablesFunctionsPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/variables-functions/variables-functions.html"), {
-    tabTitle: "Variables & Functions",
+    tabTitle: "JS | Variables & Functions",
 });
 
 const callbackFunctionsPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/callback-functions/callback-functions.html"), {
-    tabTitle: "Callback & Functions",
+    tabTitle: "JS | Callback & Functions",
 });
 
 const loopsPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/loops/loops.html"), {
-    tabTitle: "Loops",
+    tabTitle: "JS | Loops",
 });
 
 const timePage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/time/time.html"), {
-    tabTitle: "Time",
+    tabTitle: "JS | Time",
 });
 
 /* Node.js */
@@ -44,28 +44,54 @@ const nodejsPage = templateEngine.renderPage(templateEngine.readPage("./public/p
 });
 
 const expressPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/express/express.html"), {
-    tabTitle: "Express",
+    tabTitle: "Node.js | Express",
 });
 
 const htmlExpressPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/html-express/html-express.html"), {
-    tabTitle: "HTML & Express",
+    tabTitle: "Node.js | HTML & Express",
 });
 
 const packageJsonPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/package-json/package-json.html"), {
-    tabTitle: "package.json",
+    tabTitle: "Node.js | package.json",
 });
 
 const serverRenderingPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/server-rendering/server-rendering.html"), {
-    tabTitle: "Server Rendering",
+    tabTitle: "Node.js | Server Rendering",
 });
 
 const clientServerRedirectionPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/client-vs-server-redirection/client-vs-server-redirection.html"), {
-    tabTitle: "Client vs Server Redirection",
+    tabTitle: "Node.js | Client vs Server Redirection",
 });
 
 const typeModulePage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/commonjs-vs-nodejs-type-module/commonjs-vs-module.html"), {
-    tabTitle: "CommonJS vs Node.js Type Module",
+    tabTitle: "Node.js | CommonJS vs Node.js Type Module",
 });
+
+/* Rest API */
+
+const apiConventionPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/rest-api/api-convention/api-convention.html"), {
+    tabTitle: "API | Convention",
+});
+
+const crudPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/rest-api/crud/crud.html"), {
+    tabTitle: "API | CRUD",
+});
+
+const fetchPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/rest-api/fetch/fetch.html"), {
+    tabTitle: "API | Fetch",
+});
+
+const getRequestPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/rest-api/get-request/get-request.html"), {
+    tabTitle: "API | GET Request",
+});
+
+/* Deployment */
+
+const deploymentPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/deployment/deployment.html"), {
+    tabTitle: "Deployment",
+});
+
+
 
 export default {
     frontPage,
@@ -82,8 +108,12 @@ export default {
     packageJsonPage,
     serverRenderingPage,
     clientServerRedirectionPage,
-    typeModulePage
-
+    typeModulePage,
+    apiConventionPage,
+    crudPage,
+    fetchPage,
+    getRequestPage,
+    deploymentPage
 };
 
 

@@ -74,30 +74,27 @@ app.get('/type-module', (req, res) => {
 // Rest API
 
 app.get('/api-convention/', (req, res) => {
-    res.sendFile(path.resolve('public/pages/rest-api/api-convention/api-convention.html'));
+    res.send(pageGenerator.apiConventionPage);
 });
 
 app.get('/crud/', (req, res) => {
-    res.sendFile(path.resolve('public/pages/rest-api/crud/crud.html'));
+    res.send(pageGenerator.crudPage);
 });
 
 app.get('/fetch/', (req, res) => {
-    res.sendFile(path.resolve('public/pages/rest-api/fetch/fetch.html'));
+    res.send(pageGenerator.fetchPage);
 });
 
 app.get('/get-request/', (req, res) => {
-    res.sendFile(path.resolve('public/pages/rest-api/get-request/get-request.html'));
+    res.send(pageGenerator.getRequestPage);
 });
 
 
 // Deployment
 
 app.get('/deployment/', (req, res) => {
-    res.sendFile(path.resolve('public/pages/deployment/deployment.html'));
+    res.send(pageGenerator.deploymentPage);
 });
-
-
-
 
 
 
