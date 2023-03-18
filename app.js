@@ -1,5 +1,4 @@
 import express from 'express';
-import path from 'path';
 import pageGenerator from './util/pageGenerator.js';
 const app = express();
 const port = 8080;
