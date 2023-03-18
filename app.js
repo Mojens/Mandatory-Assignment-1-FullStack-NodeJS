@@ -1,74 +1,73 @@
 import express from 'express';
 import path from 'path';
-import { loginPage, frontPage, variablesPage } from './util/pageGenerator.js';
+import pageGenerator from './util/pageGenerator.js';
 const app = express();
 const port = 8080;
 
 app.use(express.static("public"));
 
 app.get('/', (req, res) => {
-    res.send(frontPage);
+    res.send(pageGenerator.frontPage);
 });
 
 app.get('/login/', (req, res) => {
-    res.send(loginPage);
+    res.send(pageGenerator.loginPage);
 });     
 
 // JavaScript
 
 app.get('/variables/', (req, res) => {
-    // res.sendFile(path.resolve('public/pages/javascript/variables/variables.html'));
-    res.send(variablesPage);
+    res.send(pageGenerator.variablesPage);
 });
 
 app.get('/clean-code/', (req, res) => {
-    res.sendFile(path.resolve('public/pages/javascript/clean-code/clean-code.html'));
+    res.send(pageGenerator.cleanCodePage);
 });
 
 app.get('/variables-functions/', (req, res) => {
-    res.sendFile(path.resolve('public/pages/javascript/variables-functions/variables-functions.html'));
+    res.send(pageGenerator.variablesFunctionsPage);
 });
 
 app.get('/callback-functions/',(req, res) => {
-    res.sendFile(path.resolve('public/pages/javascript/callback-functions/callback-functions.html'));
+    res.send(pageGenerator.callbackFunctionsPage);
 });
 
 app.get('/loops/', (req, res) => {
-    res.sendFile(path.resolve('public/pages/javascript/loops/loops.html'));
+    res.send(pageGenerator.loopsPage);
 });
 
 app.get('/time/', (req, res) => {
-    res.sendFile(path.resolve('public/pages/javascript/time/time.html'));
+    res.send(pageGenerator.timePage);
 });
 
 // Node.js
 
 app.get('/nodejs/', (req, res) => {
-    res.sendFile(path.resolve('public/pages/nodejs/intro-to-node/intro-to-node.html'));
+    res.send(pageGenerator.nodejsPage);
 });
 
 app.get('/express/', (req, res) => {
-    res.sendFile(path.resolve('public/pages/nodejs/express/express.html'));
+    res.send(pageGenerator.expressPage);
 });
 
 app.get('/html-express/', (req, res) => {
-    res.sendFile(path.resolve('public/pages/nodejs/html-express/html-express.html'));
+    res.send(pageGenerator.htmlExpressPage);
 });
 
 app.get('/package-json', (req, res) => {
-    res.sendFile(path.resolve('public/pages/nodejs/package-json/package-json.html'));
+    res.send(pageGenerator.packageJsonPage);
 });
 
 app.get('/server-rendering', (req, res) => {
-    res.sendFile(path.resolve('public/pages/nodejs/server-rendering/server-rendering.html'));
+    res.send(pageGenerator.serverRenderingPage);
 });
 
 app.get('/client-server-redirection', (req, res) => {
-    res.sendFile(path.resolve('public/pages/nodejs/client-vs-server-redirection/client-vs-server-redirection.html'));
+    res.send(pageGenerator.clientServerRedirectionPage);
 });
 
 app.get('/type-module', (req, res) => {
-    res.sendFile(path.resolve('public/pages/nodejs/commonjs-vs-nodejs-type-module/commonjs-vs-module.html'));
+    res.send(pageGenerator.typeModulePage);
 });
 
 

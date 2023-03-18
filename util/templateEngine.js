@@ -6,7 +6,8 @@ function renderPage(page, config = {}) {
         .replace("$TAB_TITLE", config.tabTitle || "Upper")
         .replace("$CSS_LINK", config.cssLink || "");
 
-    const footer = fs.readFileSync("./public/components/footer/footer.html").toString();
+    const footer = fs.readFileSync("./public/components/footer/footer.html").toString()
+        .replace("$SCRIPT_LINK", config.scriptLink || "");
 
     return navbar + page + footer;
 };
