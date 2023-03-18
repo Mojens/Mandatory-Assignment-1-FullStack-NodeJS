@@ -9,7 +9,8 @@ const frontPage = templateEngine.renderPage(templateEngine.readPage("./public/pa
 /* Login Page */
 const loginPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/auth/auth.html"), {
     tabTitle: "Login",
-    scriptLink: `<script src="/pages/auth/displayChange.js" type="module"></script>`
+    scriptLink: `<script src="/pages/auth/displayChange.js" type="module"></script>`,
+    cssLink: `<link href="/pages/auth/auth.css" rel="stylesheet">`
 });
 
 /* JavaScript */

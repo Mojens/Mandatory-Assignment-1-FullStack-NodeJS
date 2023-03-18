@@ -7,7 +7,8 @@ function renderPage(page, config = {}) {
         .replace("$CSS_LINK", config.cssLink || "");
 
     const footer = fs.readFileSync("./public/components/footer/footer.html").toString()
-        .replace("$SCRIPT_LINK", config.scriptLink || "");
+        .replace("$SCRIPT_LINK", config.scriptLink || "")
+        .replace("$FOOTER_YEAR", `${new Date().getFullYear()}`);
 
     return navbar + page + footer;
 };
