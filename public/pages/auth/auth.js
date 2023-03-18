@@ -1,6 +1,24 @@
-document.getElementById("sign-in-btn").addEventListener("click", function () {
+document.getElementById("sign-in-btn").addEventListener("click", async function () {
     const username = document.getElementById("sign-in-floating-username").value
     const password = document.getElementById("sign-in-floating-password").value
+    const response = await fetch('/auth/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: username,
+            password: password
+        })
+    });
+    const data = await response.json();
+    if (data.status === 401) {
+        document.getElementById("login-error-message").innerText = data.error;
+    } else if (data.status === 200) {
+        window.location.href = "/admin-panel";
+        localStorage.setItem("token", data.token);
+        
+    }
 });
 
 document.getElementById("sign-up-btn").addEventListener("click", async function () {

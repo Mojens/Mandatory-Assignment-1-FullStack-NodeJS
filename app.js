@@ -1,7 +1,13 @@
 import express from 'express';
+import session from 'express-session'; // This does i can create a session for the user and store the user id in the session so i can check if the user is logged in or not
 import pageGenerator from './util/pageGenerator.js';
 const app = express();
 app.use(express.json());
+app.use(session({
+    secret: 'my-secret-key', // A long, random string used to sign the session ID cookie to prevent tampering or spoofing.
+    resave: false, // Determines whether to save the session to the store on every request. true saves even if not modified, false saves only if modified.
+    saveUninitialized: true //  Determines whether to create a session even if not modified during the request. true creates session even for anonymous users, false only creates if modified.
+}));
 const port = 8080;
 
 const users = [
@@ -118,14 +124,22 @@ app.get('/admin-panel/', (req, res) => {
 
 /* auth */
 app.post('/auth/', (req, res) => {
-    const { username, password } = req.body;
+    const username = req.body.username;
+    const password = req.body.password;
+    console.log(username, password)
     const user = users.find(user => user.username.toLowerCase() === username.toLowerCase());
     if (user && user.password === password) {
+        console.log('User is logged in');
         req.session.userId = user.username;
-        res.redirect('/admin-panel');
+        res.send({
+            success: 'You have successfully logged in',
+            status: 200,
+            token: username
+        });
     } else {
         res.send({
             error: 'Username or password is incorrect',
+            status: 401
         });
     }
 });
@@ -148,6 +162,11 @@ app.post('/signup', (req, res) => {
 
 app.post('/forgot-password/', (req, res) => {
 
+});
+
+app.get('/logout/', (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
 });
 
 
