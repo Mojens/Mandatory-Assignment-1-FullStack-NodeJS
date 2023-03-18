@@ -9,8 +9,13 @@ const frontPage = templateEngine.renderPage(templateEngine.readPage("./public/pa
 /* Login Page */
 const loginPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/auth/auth.html"), {
     tabTitle: "Login",
-    scriptLink: `<script src="/pages/auth/displayChange.js" type="module"></script>`,
-    cssLink: `<link href="/pages/auth/auth.css" rel="stylesheet">`
+    scriptLink: `
+    <script src="/pages/auth/displayChange.js" type="module">
+    </script><script src="/pages/auth/auth.js" type="module"></script>
+    `,
+    cssLink: `
+    <link href="/pages/auth/auth.css" rel="stylesheet">
+    `
 });
 
 /* JavaScript */
@@ -92,6 +97,10 @@ const deploymentPage = templateEngine.renderPage(templateEngine.readPage("./publ
     tabTitle: "Deployment",
 });
 
+/* Admin Panel */
+const adminPanelPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/admin-panel/admin-panel.html"), {
+    tabTitle: "Admin Panel",
+});
 
 
 export default {
@@ -114,7 +123,8 @@ export default {
     crudPage,
     fetchPage,
     getRequestPage,
-    deploymentPage
+    deploymentPage,
+    adminPanelPage
 };
 
 
