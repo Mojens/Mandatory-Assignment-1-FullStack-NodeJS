@@ -131,7 +131,6 @@ app.post('/auth/', (req, res) => {
 });
 
 app.post('/signup', (req, res) => {
-
     const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
@@ -145,7 +144,6 @@ app.post('/signup', (req, res) => {
         res.status(200).send({succes : 'You have successfully signed up!',
                             status : 200});
     }
-    console.log(users);
 });
 
 app.post('/forgot-password/', (req, res) => {
