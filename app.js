@@ -138,11 +138,11 @@ app.post('/signup', (req, res) => {
 
     const existingUser = users.find(user => user.username.toLowerCase() === username.toLowerCase());
     if (existingUser) {
-        res.status(409).send({error : 'Username already taken',
+        res.status(409).send({error : 'Sorry!! The username is already taken',
                             status : 409});
     } else {
         users.push({ username, email, password });
-        res.status(200).send({succes : 'New user created successfully!',
+        res.status(200).send({succes : 'You have successfully signed up!',
                             status : 200});
     }
     console.log(users);
