@@ -98,8 +98,9 @@ const deploymentPage = templateEngine.renderPage(templateEngine.readPage("./publ
 });
 
 /* Admin Panel */
-const adminPanelPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/admin-panel/admin-panel.html"), {
+const adminPanelPage = templateEngine.renderAdminPage(templateEngine.readPage("./public/pages/admin-panel/admin-panel.html"), {
     tabTitle: "Admin Panel",
+    cssLink: `<link href="/assets/css/adminNavbar.css" rel="stylesheet">`,
 });
 
 

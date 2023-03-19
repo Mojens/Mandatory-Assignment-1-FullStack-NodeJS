@@ -13,7 +13,8 @@ const port = 8080;
 const users = [
     { username: 'myusername', email: 'myemail@example.com', password: 'mypassword' },
     { username: 'myusername2', email: 'myemail2@example.com', password: 'mypassword2' },
-    { username: 'myusername3', email: 'myemail3@example.com', password: 'mypassword3' }
+    { username: 'myusername3', email: 'myemail3@example.com', password: 'mypassword3' },
+    { username: 'admin123', email: 'test@mail.com', password: 'test123' }
 ];
 
 app.use(express.static("public"));
@@ -151,12 +152,16 @@ app.post('/signup', (req, res) => {
 
     const existingUser = users.find(user => user.username.toLowerCase() === username.toLowerCase());
     if (existingUser) {
-        res.status(409).send({error : 'Sorry!! The username is already taken',
-                            status : 409});
+        res.status(409).send({
+            error: 'Sorry!! The username is already taken',
+            status: 409
+        });
     } else {
         users.push({ username, email, password });
-        res.status(200).send({succes : 'You have successfully signed up!',
-                            status : 200});
+        res.status(200).send({
+            succes: 'You have successfully signed up!',
+            status: 200
+        });
     }
 });
 

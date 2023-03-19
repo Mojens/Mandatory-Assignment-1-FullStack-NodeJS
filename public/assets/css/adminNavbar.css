@@ -1,0 +1,15 @@
+.layout-container {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 1rem;
+  }
+  
+  .right-sidebar {
+    flex-basis: 20%;
+    padding: 1rem;
+  }
+  
