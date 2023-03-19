@@ -107,6 +107,7 @@ const adminPanelPage = templateEngine.renderAdminPage(templateEngine.readPage(".
 const profilePage = templateEngine.renderAdminPage(templateEngine.readPage("./public/pages/admin-pages/profile/profile.html"), {
     tabTitle: "Profile",
     cssLink: `<link href="/assets/css/adminNavbar.css" rel="stylesheet">`,
+    scriptLink: `<script src="/pages/admin-pages/profile/profile.js" type="module"></script>`,
 });
 
 const editProfilePage = templateEngine.renderAdminPage(templateEngine.readPage("./public/pages/admin-pages/edit-profile/edit-profile.html"), {

@@ -121,7 +121,7 @@ app.get('/admin-panel/', (req, res) => {
     }
 });
 
-app.get('/profile/', (req, res) => {
+app.get('/admin/profile/', (req, res) => {
     const userId = req.session.userId;
     if (userId) {
         res.send(pageGenerator.profilePage);
@@ -130,7 +130,7 @@ app.get('/profile/', (req, res) => {
     }
 });
 
-app.get('/edit-profile/', (req, res) => {
+app.get('/admin/edit-profile/', (req, res) => {
     const userId = req.session.userId;
     if (userId) {
         res.send(pageGenerator.editProfilePage);
@@ -139,7 +139,7 @@ app.get('/edit-profile/', (req, res) => {
     }
 });
 
-app.get('/new-doc-page/', (req, res) => {
+app.get('/admin/new-doc-page/', (req, res) => {
     const userId = req.session.userId;
     if (userId) {
         res.send(pageGenerator.newDocPage);
