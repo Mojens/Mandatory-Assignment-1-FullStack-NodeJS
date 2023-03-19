@@ -4,7 +4,7 @@ import pageGenerator from './util/pageGenerator.js';
 const app = express();
 app.use(express.json());
 app.use(session({
-    secret: 'my-secret-key', // A long, random string used to sign the session ID cookie to prevent tampering or spoofing.
+    secret: 'RETWEW123$&123!!6//8321%&/€#WW', // A long, random string used to sign the session ID cookie to prevent tampering or spoofing.
     resave: false, // Determines whether to save the session to the store on every request. true saves even if not modified, false saves only if modified.
     saveUninitialized: true //  Determines whether to create a session even if not modified during the request. true creates session even for anonymous users, false only creates if modified.
 }));
