@@ -13,7 +13,7 @@ type="submit" id="login-btn-navbar">Logout</button></a>
 <a class="nav-link" href="admin-panel">Admin panel</a>
 `);
     loggedInUser.innerHTML = DOMPurify.sanitize(`
-<a class="nav-link" href="admin-panel">Logged in as: <br>${localStorage.getItem("token")}</a>
+<a class="nav-link" href="admin-panel">Logged in as: <br>${localStorage.getItem("username")}</a>
 `);
 
 } else {
@@ -32,6 +32,8 @@ type="submit" id="login-btn-navbar">Logout</button></a>
 document.getElementById("login-btn-navbar").addEventListener("click", function () {
     if (loginBtn.innerText === "Logout") {
         localStorage.removeItem("token");
+        localStorage.removeItem("username");
+        localStorage.removeItem("email");
         window.location.href = "/login";
     }
 

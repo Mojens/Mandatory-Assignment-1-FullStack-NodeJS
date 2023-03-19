@@ -97,9 +97,25 @@ const deploymentPage = templateEngine.renderPage(templateEngine.readPage("./publ
     tabTitle: "Deployment",
 });
 
-/* Admin Panel */
-const adminPanelPage = templateEngine.renderAdminPage(templateEngine.readPage("./public/pages/admin-panel/admin-panel.html"), {
+/* Admin pages */
+
+const adminPanelPage = templateEngine.renderAdminPage(templateEngine.readPage("./public/pages/admin-pages/admin-panel/admin-panel.html"), {
     tabTitle: "Admin Panel",
+    cssLink: `<link href="/assets/css/adminNavbar.css" rel="stylesheet">`,
+});
+
+const profilePage = templateEngine.renderAdminPage(templateEngine.readPage("./public/pages/admin-pages/profile/profile.html"), {
+    tabTitle: "Profile",
+    cssLink: `<link href="/assets/css/adminNavbar.css" rel="stylesheet">`,
+});
+
+const editProfilePage = templateEngine.renderAdminPage(templateEngine.readPage("./public/pages/admin-pages/edit-profile/edit-profile.html"), {
+    tabTitle: "Edit Profile",
+    cssLink: `<link href="/assets/css/adminNavbar.css" rel="stylesheet">`,
+});
+
+const newDocPage = templateEngine.renderAdminPage(templateEngine.readPage("./public/pages/admin-pages/new-documentation-page/new-documentation-page.html"), {
+    tabTitle: "New Documentation Page",
     cssLink: `<link href="/assets/css/adminNavbar.css" rel="stylesheet">`,
 });
 
@@ -125,7 +141,10 @@ export default {
     fetchPage,
     getRequestPage,
     deploymentPage,
-    adminPanelPage
+    adminPanelPage,
+    profilePage,
+    editProfilePage,
+    newDocPage
 };
 
 

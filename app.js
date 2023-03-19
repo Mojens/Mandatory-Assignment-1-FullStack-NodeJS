@@ -109,12 +109,40 @@ app.get('/deployment/', (req, res) => {
     res.send(pageGenerator.deploymentPage);
 });
 
-/* Admin panel */
+/* Admin Pages */
 
+// Admin Panel
 app.get('/admin-panel/', (req, res) => {
     const userId = req.session.userId;
     if (userId) {
         res.send(pageGenerator.adminPanelPage);
+    } else {
+        res.redirect('/login');
+    }
+});
+
+app.get('/profile/', (req, res) => {
+    const userId = req.session.userId;
+    if (userId) {
+        res.send(pageGenerator.profilePage);
+    } else {
+        res.redirect('/login');
+    }
+});
+
+app.get('/edit-profile/', (req, res) => {
+    const userId = req.session.userId;
+    if (userId) {
+        res.send(pageGenerator.editProfilePage);
+    } else {
+        res.redirect('/login');
+    }
+});
+
+app.get('/new-doc-page/', (req, res) => {
+    const userId = req.session.userId;
+    if (userId) {
+        res.send(pageGenerator.newDocPage);
     } else {
         res.redirect('/login');
     }
@@ -127,15 +155,16 @@ app.get('/admin-panel/', (req, res) => {
 app.post('/auth/', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
-    console.log(username, password)
     const user = users.find(user => user.username.toLowerCase() === username.toLowerCase());
     if (user && user.password === password) {
-        console.log('User is logged in');
         req.session.userId = user.username;
         res.send({
             success: 'You have successfully logged in',
             status: 200,
-            token: username
+            token: '1234567890',
+            username: user.username,
+            email: user.email,
+
         });
     } else {
         res.send({

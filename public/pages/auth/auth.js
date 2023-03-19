@@ -17,6 +17,8 @@ document.getElementById("sign-in-btn").addEventListener("click", async function 
     } else if (data.status === 200) {
         window.location.href = "/admin-panel";
         localStorage.setItem("token", data.token);
+        localStorage.setItem("username", data.username);
+        localStorage.setItem("email", data.email);
         
     }
 });
