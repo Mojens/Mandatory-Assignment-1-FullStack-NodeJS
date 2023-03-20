@@ -1,5 +1,167 @@
-    <main>
-        <div class="container mt-5">
-            <h1 class="mb-4">API - Convention</h1>
-        </div>
-    </main>
+<main>
+    <div class="container mt-5">
+        <h1>API Convention</h1>
+
+        <h2>Introduction</h2>
+        <p> when building an API, it's important that we follow some rules and conventions to make our code more
+            maintainable and easu to understand.</p>
+
+            <h2>Anatomy of an URL</h2>
+            <img src="/assets/images/AnatomyofanURL.png" alt="Anatomy of an URL" class="img-fluid">
+
+        <h2>HTTP Methods</h2>
+        <p>HTTP methods are used to indicate the action to be performed on a resource. Express provides convenient
+            methods
+            to handle different HTTP methods. Here are some examples:</p>
+
+        <pre>
+            <code class="hljs javascript justify-content-center align-content-lg-center w-50">
+                // GET method
+                app.get('/users', function(req, res) {
+                  // code to handle the request
+                });
+    
+                // POST method
+                app.post('/users', function(req, res) {
+                  // code to handle the request
+                });
+    
+                // PUT method
+                app.put('/users/:id', function(req, res) {
+                  // code to handle the request
+                });
+
+                // PATCH method
+                app.patch('/users/:id', function(req, res) {
+                  // code to handle the request
+                });
+    
+                // DELETE method
+                app.delete('/users/:id', function(req, res) {
+                  // code to handle the request
+                });
+            </code>
+        </pre>
+
+        <h2>Resource Naming</h2>
+        <p>Resource naming is an important aspect of building APIs. You should use nouns to name your resources and
+            avoid
+            using verbs. Here are some examples:</p>
+
+        <pre>
+            <code class="hljs javascript justify-content-center align-content-lg-center w-50">
+                // Correct
+                app.get('/users', function(req, res) {
+                  // code to handle the request
+                });
+    
+                // Incorrect
+                app.get('/getUsers', function(req, res) {
+                  // code to handle the request
+                });
+            </code>
+        </pre>
+
+        <h2>Request Parameters</h2>
+        <p>Request parameters are used to send additional data along with a request. In Express, you can access request
+            parameters using the <code
+                class="hljs javascript justify-content-center align-content-lg-center w-50">req.params</code> object.
+            Here's an example:</p>
+
+        <pre>
+            <code class="hljs javascript justify-content-center align-content-lg-center w-50">
+                app.get('/users/:id', function(req, res) {
+                  const userId = req.params.id;
+                  // code to handle the request
+                });
+            </code>
+        </pre>
+
+        <h2>Response Format</h2>
+        <p>The format of your response is important to ensure that your clients can parse it correctly. The most common
+            formats are JSON and XML. Here's an example of sending a JSON response:</p>
+
+        <pre>
+            <code class="hljs javascript justify-content-center align-content-lg-center w-50">
+                app.get('/users', function(req, res) {
+                  const users = [
+                    { name: 'John Doe', age: 25 },
+                    { name: 'Jane Smith', age: 30 }
+                  ];
+                  res.json(users);
+                });
+            </code>
+        </pre>
+
+        <h2>Error Handling</h2>
+        <p>When an error occurs, it's important to return a meaningful error message to the client. In Express, you can
+            use
+            the <code class="hljs javascript justify-content-center align-content-lg-center w-50">next</code> function
+            to pass an error to the error handling middleware. Here's an example:</p>
+
+        <pre>
+            <code class="hljs javascript justify-content-center align-content-lg-center w-50">
+                app.get('/users/:id', function(req, res, next) {
+                  const userId = req.params.id;
+                  if (!userId) {
+                    const error = new Error('User ID is required');
+                    error.status = 400;
+                    return next(error);
+        // code to handle the request
+    });
+
+    // Error handling middleware
+    app.use(function(err, req, res, next) {
+      res.status(err.status || 500);
+      res.json({
+        error: {
+          message: err.message
+        }
+      });
+    });
+</code>
+</pre>
+
+        <h2>Versioning</h2>
+        <p>API versioning is a way to manage changes to your API over time. You can use URL versioning or header
+            versioning
+            to indicate the version of your API. Here's an example of URL versioning:</p>
+
+        <pre>
+<code class="hljs javascript justify-content-center align-content-lg-center w-50">
+    // Version 1 of the API
+    app.get('/v1/users', function(req, res) {
+      // code to handle the request
+    });
+
+    // Version 2 of the API
+    app.get('/v2/users', function(req, res) {
+      // code to handle the request
+    });
+</code>
+</pre>
+
+        <h2>Caching</h2>
+        <p>Caching can improve the performance of your API by reducing the number of requests to the server. In Express,
+            you
+            can use caching middleware like <code
+                class="hljs javascript justify-content-center align-content-lg-center w-50">express-cache-controller</code>
+            to add cache headers to your responses.
+            Here's an example:</p>
+
+        <pre>
+<code class="hljs javascript justify-content-center align-content-lg-center w-50">
+    const cache = require('express-cache-controller');
+
+    app.get('/users', cache({ maxAge: 60 }), function(req, res) {
+      const users = [{ name: 'John Doe', age: 25 },
+                    { name: 'Jane Smith', age: 30 }];
+      res.json(users);
+    });
+</code>
+</pre>
+        <h2>Conclusion</h2>
+        <p>By following these API conventions, you can make your Express code more maintainable and easy to understand.
+            These conventions are widely adopted in the industry and can help you build high-quality APIs.</p>
+    </div>
+</main>

@@ -77,6 +77,9 @@ const typeModulePage = templateEngine.renderPage(templateEngine.readPage("./publ
 
 const apiConventionPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/rest-api/api-convention/api-convention.html"), {
     tabTitle: "API | Convention",
+    cssLink: `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/monokai-sublime.min.css">`,
+    scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
+                 <script>hljs.highlightAll();</script>`,
 });
 
 const crudPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/rest-api/crud/crud.html"), {
