@@ -1,6 +1,19 @@
-    <main>
-        <div class="container mt-5">
-            <h1 class="mb-4">Get-request</h1>
-        </div>
-    </main>
-    
+<main>
+    <div class="container mt-5">
+        <h1 class="mb-4">Get-request</h1>
+        <h2>Anatomy of an URL</h2>
+        <img src="/assets/images/AnatomyofanURL.png" alt="Anatomy of an URL" class="img-fluid">
+        <h2>Request Parameters</h2>
+        <p>Request parameters are used to send additional data along with a request. In Express, you can access request
+            parameters using the <b>req.params</b> object.<br>
+            Here's an example:</p>
+        <pre>
+            <code class="hljs javascript justify-content-center align-content-lg-center w-50">
+                app.get('/users/:id', function(req, res) {
+                  const userId = req.params.id;
+                  // code to handle the request
+                });
+            </code>
+        </pre>
+    </div>
+</main>

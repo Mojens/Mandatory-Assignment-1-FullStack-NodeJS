@@ -92,6 +92,9 @@ const fetchPage = templateEngine.renderPage(templateEngine.readPage("./public/pa
 
 const getRequestPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/rest-api/get-request/get-request.html"), {
     tabTitle: "API | GET Request",
+    cssLink: `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/monokai-sublime.min.css">`,
+    scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
+                 <script>hljs.highlightAll();</script>`,
 });
 
 /* Deployment */

@@ -14,11 +14,13 @@ const signUpText = document.getElementById('sign-up-text');
 signInForm.style.display = 'block';
 signUpForm.style.display = 'none';
 formContainer.style.height = '70vh';
+formContainer.style.marginBottom = '130px';
 signInBtn.style.display = 'none';
 
 signInBtn.addEventListener('click', function () {
-    document.title = 'Sign In';
+    document.title = 'Login';
     formContainer.style.height = '70vh';
+    formContainer.style.marginBottom = '130px';
     signInForm.style.display = 'block';
     signUpForm.style.display = 'none';
     forgotPwdForm.style.display = 'none';
@@ -31,6 +33,7 @@ signInBtn.addEventListener('click', function () {
 signUpBtn.addEventListener('click', function () {
     document.title = 'Sign Up';
     formContainer.style.height = '75vh';
+    formContainer.style.marginBottom = '85px';
     signUpForm.style.display = 'block';
     signInForm.style.display = 'none';
     forgotPwdForm.style.display = 'none';
@@ -43,6 +46,7 @@ signUpBtn.addEventListener('click', function () {
 forgotPwdBtn.addEventListener('click', function () {
     document.title = 'Forgot Password';
     formContainer.style.height = '54vh';
+    formContainer.style.marginBottom = '280px';
     signUpForm.style.display = 'none';
     signInForm.style.display = 'none';
     forgotPwdForm.style.display = 'block';
