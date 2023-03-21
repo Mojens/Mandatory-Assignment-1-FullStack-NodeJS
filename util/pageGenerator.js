@@ -45,9 +45,6 @@ const timePage = templateEngine.renderPage(templateEngine.readPage("./public/pag
 });
 
 /* Node.js */
-const nodejsPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/intro-to-node/intro-to-node.html"), {
-    tabTitle: "Node.js",
-});
 
 const expressPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/express/express.html"), {
     tabTitle: "Node.js | Express",
@@ -66,6 +63,9 @@ const packageJsonPage = templateEngine.renderPage(templateEngine.readPage("./pub
 
 const serverRenderingPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/server-rendering/server-rendering.html"), {
     tabTitle: "Node.js | Server Rendering",
+    cssLink: `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/monokai-sublime.min.css">`,
+    scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
+                 <script>hljs.highlightAll();</script>`,
 });
 
 const clientServerRedirectionPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/client-vs-server-redirection/client-vs-server-redirection.html"), {
@@ -135,6 +135,13 @@ const newDocPage = templateEngine.renderAdminPage(templateEngine.readPage("./pub
     cssLink: `<link href="/assets/css/adminNavbar.css" rel="stylesheet">`,
 });
 
+// error pages
+
+const pageNotFound = templateEngine.renderPage(templateEngine.readPage("./public/components/error-pages/404.html"), {
+    tabTitle: "404",
+    cssLink: `<link href="/components/error-pages/404.css" rel="stylesheet">`,
+});
+
 
 export default {
     frontPage,
@@ -145,7 +152,6 @@ export default {
     callbackFunctionsPage,
     loopsPage,
     timePage,
-    nodejsPage,
     expressPage,
     htmlExpressPage,
     packageJsonPage,
@@ -160,7 +166,8 @@ export default {
     adminPanelPage,
     profilePage,
     editProfilePage,
-    newDocPage
+    newDocPage,
+    pageNotFound,
 };
 
 

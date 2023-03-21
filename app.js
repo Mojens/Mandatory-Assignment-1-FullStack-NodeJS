@@ -55,10 +55,6 @@ app.get('/time/', (req, res) => {
 
 // Node.js
 
-app.get('/nodejs/', (req, res) => {
-    res.send(pageGenerator.nodejsPage);
-});
-
 app.get('/express/', (req, res) => {
     res.send(pageGenerator.expressPage);
 });
@@ -202,6 +198,12 @@ app.get('/logout/', (req, res) => {
     req.session.destroy();
     res.redirect('/');
 });
+
+
+// 404 - Page not found
+app.get('*', function(req, res){
+    res.send(pageGenerator.pageNotFound);
+  });
 
 
 app.listen(port, (error) => {

@@ -1,5 +1,115 @@
-        <main>
-            <div class="container mt-5">
-                <h1 class="mb-4">Server Rendering</h1>
-            </div>
-        </main>
+<main>
+    <div class="container mt-5">
+        <h1 class="mb-4">Server Rendering</h1>
+        <div id="server-rendering-introduction">
+            <h2>Introduction</h2>
+            <p>
+                Server rendering is when you render a page on the server and therefter send the rendered page to the
+                client.
+                <br>Contra client-side rendering, is where the client renders the page in there own browser after they
+                have made the request.
+            </p>
+            <p>
+                <b>Here is some examples: </b>
+            </p>
+        </div>
+        <div id="server-rendering-client-side">
+            <h2>Client-side Rendering</h2>
+            <p>
+                As i said in the introduction, client-side rendering is when the client renders the page in there own
+                browser after they have made the request.<br>
+            </p>
+            <pre style="margin-bottom: 0!important;">
+                            <code class="hljs javascript justify-content-center align-content-lg-center w-50">
+    // GET method
+    app.get('/tanks', (req, res) => {
+        res.sendFile(__dirname + '/public/tanks/tanks.html')
+      })
+                            </code>
+                        </pre>
+            <p>
+                So here is an example of a client-side rendering, where the client renders the page in there own browser
+                after they have made the request.<br>
+                When the client makes a request to the server, the server sends the client a html file, which the client
+                then renders in there own browser.
+            </p>
+
+        </div>
+        <div id="server-rendering-server-side">
+            <h2>Server-side Rendering</h2>
+            <p>
+                Server-side rendering is when you render a page on the server and therefter send the rendered page to
+                the client.<br>
+            </p>
+            <p>
+                Here is just an example how you can accomplish server-side rendering in node.js.
+                <br>In this case we have a function called readPage and and a function called renderPage.<br>
+                The <b>readPage</b> function reads the html file <br>
+                The <b>renderPage</b> function renders the html file, and puts different components together with the html page.
+            </p>
+            <p style="margin-bottom: 0;padding-bottom: 0;margin-top: 0;"><b>templateEngine.js</b></p>
+            <pre style="margin-top: 0;padding-top: 0;">
+                        <code class="hljs javascript justify-content-center align-content-lg-center w-75">
+    import fs from "fs";
+    // fs is a node.js module, which allows to work with the html files
+
+    function readPage(pagePath) {
+    // This function reads the html file
+        return fs.readFileSync(pagePath).toString()
+        // fs.readFileSync reads the html file
+        // readFileSync is a blocking function, so it will wait for the file to be read before continuing
+    };
+
+    function renderPage(page, config = {}) {
+
+        const navbar = fs.readFileSync("./public/components/navbar/navbar.html").toString()
+            .replace("$TAB_TITLE", config.tabTitle || "Upper")
+            .replace("$CSS_LINK", config.cssLink || "");
+    
+        const footer = fs.readFileSync("./public/components/footer/footer.html").toString()
+            .replace("$FOOTER_YEAR", `© ${new Date().getFullYear()} Upper`);
+    
+        return navbar + page + footer;
+        // Here it puts different components together with the html page.
+    };
+
+    // Here we export the functions
+    export default {
+        renderPage,
+        readPage
+    };
+                        </code>
+                    </pre>
+                    <p style="margin-bottom: 0;padding-bottom: 0;margin-top: 0;"><b>app.js</b></p>
+                    <pre>
+                        <code class="hljs javascript justify-content-center align-content-lg-center w-75">
+    import templateEngine from "./util/templateEngine.js";
+    // Here we import the templateEngine.js file
+
+    const frontpage = templateEngine.readPage("./public/pages/frontpage/frontpage.html");
+    // Here we read the html file
+    const frontpagePage = templateEngine.renderPage(frontpage, {
+        tabTitle: "Upper | Home"
+    });
+
+    const IRLQuests = templateEngine.readPage("./public/pages/IRLQuests/IRLQuests.html");
+    const IRLQuestsPage = templateEngine.renderPage(IRLQuests, {
+    tabTitle: "Upper | IRLQuests"
+    });
+
+    //GET method
+    app.get("/", (req, res) => {
+        res.send(frontpagePage);
+        // Here we send the rendered page to the client
+    });
+    
+    app.get("/IRLQuests", (req, res) => {
+        res.send(IRLQuestsPage);
+        // Here we send the rendered page to the client
+    });
+                        </code>
+                    </pre>
+        </div>
+
+    </div>
+</main>
