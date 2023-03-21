@@ -1,5 +1,94 @@
-    <main>
-        <div class="container mt-5">
-            <h1 class="mb-4">Fetch</h1>
+<main>
+    <div class="container mt-5">
+        <h1 class="mb-4">Fetch</h1>
+        <div id="fetch-introduction">
+            <h2>Introduction</h2>
+            <p>
+                Fetch is a way to make HTTP request in javascript. You can use it to get data from a server, or send
+                data to a server.<br>
+                Here you can use <a href="/api-convention#api-convention-http-methods">HTTP methods</a>
+                like <b>GET</b>, <b>POST</b>, <b>PUT</b>, <b>DELETE</b>, which also is called <a href="/crud">CRUD</a>
+            </p>
         </div>
-    </main>
+        <div id="fetch-get">
+            <h2>Get request with fetch</h2>
+            <p>
+                You can use the fetch() function to make a request to the server.
+                the function takes a argument which is the <b>URL</b> from where you want to get data.
+                <br>To give you an idea how it works i'll show how to fetch from a API and different ways to write the
+                URL<br>
+                After you have fetched you get a promise back, which you can use to get the data from the server.
+                <br>You can use the <b>then()</b> function to get the data from the promise.
+                <br>The <b>then()</b> function takes a callback function as an argument.
+                <br>You can use the <b>.json()</b> function to get the data from the promise as a json object.
+                <br>After you have gotten the data you can use it in your code.
+
+                <br>
+                <b>Here are some examples:</b>
+            </p>
+            <h4>URL</h4>
+            <pre>
+                    <code class="hljs javascript justify-content-center align-content-lg-center w-50">
+    fetch('http://www.boredapi.com/api/activity/')
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            })
+                    </code>
+                </pre>
+            <h4>Endpoint</h4>
+            <p>This means this endpoint is from our own server</p>
+            <pre>
+                    <code class="hljs javascript justify-content-center align-content-lg-center w-50">
+    fetch('/api/activity/')
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            })
+                    </code>
+                </pre>
+
+        </div>
+        <div id="fetch-send-data">
+            <h2>Send data</h2>
+            <p>
+                You also can send data to a server with the fetch function.
+                You can use the <a href="/api-convention#api-convention-http-methods">HTTP methods</a> to do this.
+                <br>Here is an example of how to send data to the server with the fetch function.
+            </p>
+            <pre>
+                <code class="hljs javascript justify-content-center align-content-lg-center w-50">
+    const userToCreate = {
+        name: 'John Doe',
+        email: 'John_doe@outlook.com'
+        };
+
+    fetch('/api/users/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userToCreate)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            })
+                </code>
+            </pre>
+            <p>
+                So what we are trying to do here is to add a new user to the database.
+                So we create the object, then we fetch the endpoint <b>/api/users/</b> with the <b>POST</b> method.
+                <br>
+                Then we add the headers, which is us telling it what kind of data we are sending to the server.
+                <br>
+                Then we add the body, which is the data we are sending to the server.
+                <br>
+                After we have sent the data to the server we get a promise back, which we can use to get the data from
+                the server.
+                <br>
+                We can use the <b>then()</b> function to get the data from the promise.
+            </p>
+        </div>
+    </div>
+</main>
