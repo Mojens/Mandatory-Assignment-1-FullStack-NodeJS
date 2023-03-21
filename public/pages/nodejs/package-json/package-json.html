@@ -1,5 +1,65 @@
-        <main>
-            <div class="container mt-5">
-                <h1 class="mb-4">Package.json</h1>
-            </div>
-        </main>
+<main>
+    <div class="container mt-5">
+        <h1 class="mb-4">Package.json</h1>
+        <div id="packagejson-introduction">
+            <h2>Introduction</h2>
+            <p>
+                Package.json is a file that contains information about your project. It contains information like
+                the name of the project, the version, the author, the dependencies and more.
+                <br>
+                When you create a new project with npm init, npm will create a package.json file for you.
+            </p>
+
+            <pre>
+                    <code class="hljs javascript justify-content-center align-content-lg-center" style="width: 10%;">
+   npm init
+                    </code>
+                </pre>
+        </div>
+        <div id="packagejson-example">
+            <h2>Example</h2>
+            <p>
+                Here is an example of a package.json file.
+            </p>
+            <pre>
+                    <code class="hljs javascript justify-content-center align-content-lg-center" style="width: 50%;">
+    {
+        "name": "Project Name",
+        "version": "0.0.1",
+        "description": "Project description",
+        "type": "module",
+        "main": "app.js",
+        "scripts": {
+          "test": "echo \"Error: no test specified\" && exit 1"
+        },
+        "repository": {
+          "type": "git",
+          "url": "git+https://github.com/User/repository-name.git"
+        },
+        "keywords": [
+          "node",
+          "javascript",
+          "fullstack",
+          "documentation",
+          "nodejs",
+          "express",
+          "nodemon"
+        ],
+        "author": "Your name or username",
+        "license": "MIT",
+        "bugs": {
+          "url": "https://github.com/User/repository-name/issues"
+        },
+        "homepage": "https://github.com/User/repository-name#readme",
+        "dependencies": {
+          "express": "^4.18.2",
+          "express-session": "^1.17.3",
+          "nodemon": "^2.0.21"
+        }
+      }    
+                    </code>
+                </pre>
+
+        </div>
+    </div>
+</main>

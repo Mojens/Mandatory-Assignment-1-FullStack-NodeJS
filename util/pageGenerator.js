@@ -59,6 +59,9 @@ const htmlExpressPage = templateEngine.renderPage(templateEngine.readPage("./pub
 
 const packageJsonPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/package-json/package-json.html"), {
     tabTitle: "Node.js | package.json",
+    cssLink: `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/monokai-sublime.min.css">`,
+    scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
+                 <script>hljs.highlightAll();</script>`,
 });
 
 const serverRenderingPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/server-rendering/server-rendering.html"), {
