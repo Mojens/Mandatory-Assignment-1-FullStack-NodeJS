@@ -1,129 +1,120 @@
 <main>
-    <div class="container mt-5">
-        <h1>API Convention</h1>
+  <div class="container mt-5">
+    <h1>API Convention</h1>
+    <div id="api-convention-introduction">
+      <h2>Introduction</h2>
+      <p> When building an API, it's important that we follow some rules and conventions to make our code more
+        maintainable and easy to understand.</p>
+    </div>
+    <div id="api-convention-http-methods">
+      <h2>HTTP Methods</h2>
+      <p>HTTP methods are used to indicate the action that is needed to be performed.<br>
+        Here there is a couple of methods such as:
+        <br>
+        <br><b>GET:</b> Requests data from a databse.
+        <br><b>POST:</b> This is typically used to insert new data into your database.
+        <br><b>PUT:</b> This replaces the whole row or data in the database.
+        <br><b>PATCH:</b> This replaces part of a existing data or row in a database.
+        <br><b>DELETE:</b> This deletes a specifc row in a database.
+        <br>
+        <br> <b>Here are some examples:</b>
+      </p>
 
-        <h2>Introduction</h2>
-        <p> when building an API, it's important that we follow some rules and conventions to make our code more
-            maintainable and easu to understand.</p>
-
-        <h2>HTTP Methods</h2>
-        <p>HTTP methods are used to indicate the action to be performed on a resource. Express provides convenient
-            methods
-            to handle different HTTP methods. Here are some examples:</p>
-
-        <pre>
+      <pre>
             <code class="hljs javascript justify-content-center align-content-lg-center w-50">
    // GET method
    app.get('/api/users', function(req, res) {
-     // code to handle the request
+     // insert code in here
    });
   
    // POST method
    app.post('/api/users', function(req, res) {
-     // code to handle the request
+     // insert code in here
    });
   
    // PUT method
    app.put('/api/users/:id', function(req, res) {
-     // code to handle the request
+     // insert code in here
    });
 
    // PATCH method
    app.patch('/api/users/:id', function(req, res) {
-     // code to handle the request
+     // insert code in here
    });
   
    // DELETE method
    app.delete('/api/users/:id', function(req, res) {
-     // code to handle the request
+     // insert code in here
    });
             </code>
         </pre>
+        <p>
+          See more about HTTP methods and CRUD <a href="/crud">Here</a>
+        </p>
+    </div>
+    <div id="api-convention-resource-naming">
+      <h2>Resource Naming</h2>
+      <p>Resource naming is very important when you are building an API. You should use nouns to name the resource and
+        avoid using verbs. <br><b>Here are some examples:</b></p>
 
-        <h2>Resource Naming</h2>
-        <p>Resource naming is an important aspect of building APIs. You should use nouns to name your resources and
-            avoid
-            using verbs. Here are some examples:</p>
-
-        <pre>
+      <pre>
             <code class="hljs javascript justify-content-center align-content-lg-center w-50">
       // Correct
       app.get('/api/users', function(req, res) {
-        // code to handle the request
+        // insert code in here
       });
     
       // Incorrect
       app.get('/api/getUsers', function(req, res) {
-        // code to handle the request
+        // insert code in here
       });
             </code>
         </pre>
+    </div>
+    <div id="api-convention-response-format">
+      <h2>Response Format</h2>
+      <p>The format of the response is important so that the client or other people using your api can parse
+        the data correctly. The most common
+        formats are JSON and XML. <br> <b>Here are some examples:</b></p>
 
-        <h2>Response Format</h2>
-        <p>The format of your response is important to ensure that your clients can parse it correctly. The most common
-            formats are JSON and XML. Here's an example of sending a JSON response:</p>
-
-        <pre>
+      <pre>
             <code class="hljs javascript justify-content-center align-content-lg-center w-50">
-  app.get('/api/users', function(req, res) {
-    const users = [
+  const users = [
       { name: 'John Doe', age: 25 },
       { name: 'Jane Smith', age: 30 }
     ];
-    res.json(users);
+  app.get('/api/users', function(req, res) {
+    res.send({ data: users })
   });
             </code>
         </pre>
+    </div>
+    <div id="api-convention-versioning">
+      <h2>Versioning</h2>
+      <p>API versioning is a way to manage changes to your API over time. You can write the version before the name of
+        your resource
+        to indicate the version of your API. <br><b>Here are some examples:</b></p>
 
-        <h2>Error Handling</h2>
-        <p>When an error occurs, it's important to return a meaningful error message to the client. In Express, you can
-            use
-            the <code class="hljs javascript justify-content-center align-content-lg-center w-50">next</code> function
-            to pass an error to the error handling middleware. Here's an example:</p>
-
-        <pre>
-            <code class="hljs javascript justify-content-center align-content-lg-center w-50">
-  app.get('/api/users/:id', function(req, res, next) {
-      const userId = req.params.id;
-      if (!userId) {
-        const error = new Error('User ID is required');
-        error.status = 400;
-        return next(error);
-      // code to handle the request
-  });
-
-  // Error handling middleware
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.json({
-      error: {
-        message: err.message
-      }
-    });
-  });
-</code>
-</pre>
-
-        <h2>Versioning</h2>
-        <p>API versioning is a way to manage changes to your API over time. You can use URL versioning or header
-            versioning
-            to indicate the version of your API. Here's an example of URL versioning:</p>
-
-        <pre>
+      <pre>
 <code class="hljs javascript justify-content-center align-content-lg-center w-50">
     // Version 1 of the API
     app.get('/api/v1/users', function(req, res) {
-      // code to handle the request
+      // insert code in here
     });
 
     // Version 2 of the API
     app.get('/api/v2/users', function(req, res) {
-      // code to handle the request
+      // insert code in here
     });
 </code>
 </pre>
-        <h2>Conclusion</h2>
-        <p>By following these API conventions, you can make your Express code more maintainable and easy to understand.
-            These conventions are widely adopted in the industry and can help you build high-quality APIs.</p>
     </div>
+    <div id="api-convention-conclusion">
+      <h2>Conclusion</h2>
+      <p>By following these API conventions, you can make your code more maintainable and easy to understand.
+        These conventions are widely used in the industry and can help you and your future colleagues to make a better
+        API
+      </p>
+    </div>
+  </div>
 </main>

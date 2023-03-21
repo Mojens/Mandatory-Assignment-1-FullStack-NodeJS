@@ -1,5 +1,129 @@
-    <main>
-        <div class="container mt-5">
-            <h1 class="mb-4">CRUD</h1>
+<main>
+    <div class="container mt-5">
+        <h1 class="mb-4">CRUD</h1>
+        <div id="crud-introduction">
+            <h2>Introduction</h2>
+            <p> CRUD is short for <b>C</b>reate, <b>R</b>ead, <b>U</b>pdate and <b>D</b>elete.
+                it's 4 operations used in databases and web applications, and
+                they can be implementend using <a href="/api-convention#api-convention-http-methods">HTTP methods.</a>
+            </p>
         </div>
-    </main>
+        <div id="crud-create">
+            <h2><b>C</b>reate</h2>
+            <p>
+                The create operation is used to insert new data into a database or in this case an array.
+                <br>
+                <b>Here is an example:</b>
+            </p>
+            <pre>
+                <code class="hljs javascript justify-content-center align-content-lg-center w-75">
+    const Birds = [
+        { id: getNextId(), type: 'Pigeon', color: 'White' },
+        { id: getNextId(), type: 'Eagle', color: 'Brown' },
+        { id: getNextId(), type: 'Parrot', color: 'Green' },
+        { id: getNextId(), type: 'Duck', color: 'Yellow' },
+        { id: getNextId(), type: 'Owl', color: 'Black' },
+        { id: getNextId(), type: 'Swan', color: 'White' }
+        ];
+    // POST method
+    app.post('/api/birds', (req, res) => {
+        const bird = {  
+            id: getNextId(),
+            type: req.body.type,
+            color: req.body.color
+        };
+        // creating a new bird object with the data from the request body
+        Birds.push(bird);
+        // pushing the new bird object into the Birds array (which would be a database in a real case)
+        res.send(bird);
+        // sending the new bird object back to the client as a response
+    });
+                </code>
+            </pre>
+        </div>
+        <div id="crud-read">
+            <h2><b>R</b>ead</h2>
+            <p>
+                The read operation is used to read existing data from a database or in this case an array.
+                <br>
+                <b>Here is an example:</b>
+            </p>
+            <pre>
+                <code class="hljs javascript justify-content-center align-content-lg-center w-75">
+        // GET method
+        app.get('/api/birds', (req, res) => {
+            // sending the Birds array back to the client as a response
+            res.send(Birds);
+        });
+                </code>
+            </pre>
+
+        </div>
+
+        <div id="crud-update">
+            <h2><b>U</b>pdate</h2>
+            <p>
+                The update operation is used to update existing data in a database or in this case an array.
+                <br>
+                <b>Here is an example:</b>
+            </p>
+            <pre>
+                <code class="hljs javascript justify-content-center align-content-lg-center w-75">
+    // PUT method
+    app.put('/api/birds/:id', (req, res) => {
+        const bird = Birds.find(b => b.id === parseInt(req.params.id));
+        // finding the bird object with the id from the request parameters
+        if (!bird) {
+            res.status(404).send(`Could not find Bird with ID: ${req.params.id}.`);
+            // if the bird object is not found, it sends a 404 status code and a message
+        };
+        bird.type = req.body.type;
+        bird.color = req.body.color;
+        // updating the bird object with the data from the request body
+        res.send(bird);
+        // sending the updated bird object back to the client as a response
+    });
+                </code>
+            </pre>
+        </div>
+        <div id="crud-delete">
+            <h2><b>D</b>elete</h2>
+            <p>
+                The delete operation is used to delete existing data from a database or in this case an array.
+                <br>
+                <b>Here is an example:</b>
+            </p>
+            <pre>
+                <code class="hljs javascript justify-content-center align-content-lg-center w-75">
+        // DELETE method
+        app.delete('/api/birds/:id', (req, res) => {
+            const bird = Birds.find(b => b.id === parseInt(req.params.id));
+            // finding the bird object with the id from the request parameters
+            if (!bird) {
+                res.status(404).send(`Could not find Bird with ID: ${req.params.id}.`);
+                // if the bird object is not found, it sends a 404 status code and a message
+                return;
+            }
+            const index = Birds.indexOf(bird);
+            // finding the index of the bird object in the Birds array
+            Birds.splice(index, 1);
+            // removing the bird object from the Birds array
+            res.send(`Deleted bird with ID ${req.params.id}.`);
+            // sending a message back to the client as a response
+        });
+                </code>
+            </pre>
+
+        </div>
+        <div id="crud-conclusion">
+            <h2>Conclusion</h2>
+            <p>
+                <b>CRUD</b> are essential while working with databases and web applications.
+            </p>
+
+        </div>
+
+    </div>
+
+    </div>
+</main>

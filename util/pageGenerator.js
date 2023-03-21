@@ -84,6 +84,9 @@ const apiConventionPage = templateEngine.renderPage(templateEngine.readPage("./p
 
 const crudPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/rest-api/crud/crud.html"), {
     tabTitle: "API | CRUD",
+    cssLink: `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/monokai-sublime.min.css">`,
+    scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
+                 <script>hljs.highlightAll();</script>`,
 });
 
 const fetchPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/rest-api/fetch/fetch.html"), {
