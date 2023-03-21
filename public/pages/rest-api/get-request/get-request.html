@@ -1,19 +1,53 @@
 <main>
     <div class="container mt-5">
         <h1 class="mb-4">Get-request</h1>
-        <h2>Anatomy of an URL</h2>
-        <img src="/assets/images/AnatomyofanURL.png" alt="Anatomy of an URL" class="img-fluid">
-        <h2>Request Parameters</h2>
-        <p>Request parameters are used to send additional data along with a request. In Express, you can access request
-            parameters using the <b>req.params</b> object.<br>
-            Here's an example:</p>
-        <pre>
+        <div id="get-request-anatomy-of-an-url">
+            <h2>Anatomy of an URL</h2>
+            <img src="/assets/images/AnatomyofanURL.png" alt="Anatomy of an URL" class="img-fluid">
+        </div>
+        <div id="get-request-request-parameters">
+            <h2>Query Parameters</h2>
+            <p>Query parameters are used to send additional data along with a request. In Express, you can use the 
+                request parameters using (<b>req.query</b>)<br>
+                Here's an example:
+            </p>
+            <p>
+                The URL would look like this: <br><b>http://localhost:8080/bat?adjective=spooky</b>
+            </p>
+            <pre>
             <code class="hljs javascript justify-content-center align-content-lg-center w-50">
-                app.get('/users/:id', function(req, res) {
-                  const userId = req.params.id;
-                  // code to handle the request
-                });
+    // GET method
+    app.get("/bat", (req, res) => {
+        res.send({ message: `The bat is ${req.query.adjective}` })
+    });
             </code>
         </pre>
+        </div>
+        <div id="get-request-path-params">
+            <h2>Path Parameter</h2>
+            <p>
+                Path parameters are usually used to send a id with a request. In Express, you can use the
+                Path parameters using (<b>req.params</b>)<br>
+            </p>
+            <p>
+                The URL would look like this: <br><b>http://localhost:8080/api/birds/1</b>
+            </p>
+            <pre>
+            <code class="hljs javascript justify-content-center align-content-lg-center w-75">
+    // GET method
+    app.get('/api/birds/:id', (req, res) => {
+        const bird = Birds.find(b => b.id === parseInt(req.params.id));
+        // find the bird with the given ID
+        if (!bird) {
+            res.status(404).send(`Could not find Bird with ID: ${req.params.id}.`);
+            // if the bird is not found, return a 404 error
+        };
+        res.send(bird);
+        // if the bird is found, return the bird
+    });
+            </code>
+            </pre>
+
+        </div>
     </div>
 </main>
