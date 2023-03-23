@@ -1,5 +1,48 @@
 <main>
-    <div class="layout-container">
-      <div class="main-content" style="width: 80%;">
-        <h1>Edit profile</h1>
+  <div class="layout-container">
+      <div class="main-content" style="width: 80%;margin-bottom: 550px;">
+        <h1 class="mb-4">
+          Edit Profile
+        </h1>
+        <div id="sign-up-form" style="margin-left: 20%;">
+          <div id="signup-form-data">
+            <div class="form-group">
+              <div class="form-control-plaintext mb-3">
+                <label for="profile-username">
+                  Username
+                </label>
+                <input readonly type="text" class="form-control" id="edit-profile-username" style="width: 25%;">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-control-plaintext mb-3">
+                <label for="profile-email">
+                  E-mail
+                </label>
+                <input readonly type="email" class="form-control" id="edit-profile-email" style="width: 25%;">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-control-plaintext mb-3">
+                <label for="profile-password1">
+                  New password
+                </label>
+                <input readonly type="password" class="form-control" id="edit-profile-password1" style="width: 25%;">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-control-plaintext mb-3">
+                <label for="profile-password2">
+                  Confirm password
+                </label>
+                <input readonly type="password" class="form-control" id="edit-profile-password2" style="width: 25%;">
+              </div>
+            </div>
+          </div>
+          <div class="form-group d-flex justify-content-start">
+            <button class="btn btn-outline-success my-1 my-sm-auto btn-lg" id="edit-profile-btn">
+              Edit profile
+            </button>
+          </div>
+        </div>
       </div>
