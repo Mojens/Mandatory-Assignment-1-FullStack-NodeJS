@@ -1,6 +1,7 @@
 import express from 'express';
 import session from 'express-session'; // This does i can create a session for the user and store the user id in the session so i can check if the user is logged in or not
 import pageGenerator from './util/pageGenerator.js';
+import { userList, getNextId } from './util/users.js';
 const app = express();
 app.use(express.json());
 app.use(session({
@@ -9,13 +10,6 @@ app.use(session({
     saveUninitialized: true //  Determines whether to create a session even if not modified during the request. true creates session even for anonymous users, false only creates if modified.
 }));
 const port = 8080;
-
-const users = [
-    { username: 'myusername', email: 'myemail@example.com', password: 'mypassword' },
-    { username: 'myusername2', email: 'myemail2@example.com', password: 'mypassword2' },
-    { username: 'myusername3', email: 'myemail3@example.com', password: 'mypassword3' },
-    { username: 'admin123', email: 'test@mail.com', password: 'test123' }
-];
 
 app.use(express.static("public"));
 
@@ -145,19 +139,56 @@ app.get('/admin/new-doc-page/', (req, res) => {
 });
 
 
+
+
 // API
 
 /* auth */
+
+app.put('/users/:id', (req, res) => {
+    const userId = req.session.userId;
+    const id = Number(req.params.id);
+    if (userId) {
+        const user = userList.find(user => user.UUID === id);
+        if (user) {
+            if (req.body.username) {
+                user.username = req.body.username; 
+                console.log(req.body.username);
+            }
+            if (req.body.email) {
+                user.email = req.body.email;
+                console.log(req.body.email);
+            }
+            if (req.body.password) {
+                user.password = req.body.password;
+                console.log(req.body.password);
+            }
+            res.send({
+                success: 'You have successfully updated your profile',
+                status: 200
+            });
+        } else {
+            res.status(404).send({
+                error: 'User not found',
+                status: 404
+            });
+        }
+    } else {
+        res.redirect('/login');
+    }
+});
+
+
 app.post('/auth/', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
-    const user = users.find(user => user.username.toLowerCase() === username.toLowerCase());
+    const user = userList.find(user => user.username.toLowerCase() === username.toLowerCase());
     if (user && user.password === password) {
         req.session.userId = user.username;
         res.send({
             success: 'You have successfully logged in',
             status: 200,
-            token: '1234567890',
+            token: user.UUID,
             username: user.username,
             email: user.email,
 
@@ -171,18 +202,19 @@ app.post('/auth/', (req, res) => {
 });
 
 app.post('/signup', (req, res) => {
+    const UUID = getNextId();
     const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
 
-    const existingUser = users.find(user => user.username.toLowerCase() === username.toLowerCase());
+    const existingUser = userList.find(user => user.username.toLowerCase() === username.toLowerCase());
     if (existingUser) {
         res.status(409).send({
             error: 'Sorry!! The username is already taken',
             status: 409
         });
     } else {
-        users.push({ username, email, password });
+        userList.push({ UUID, username, email, password });
         res.status(200).send({
             succes: 'You have successfully signed up!',
             status: 200
@@ -201,9 +233,9 @@ app.get('/logout/', (req, res) => {
 
 
 // 404 - Page not found
-app.get('*', function(req, res){
+app.get('*', function (req, res) {
     res.send(pageGenerator.pageNotFound);
-  });
+});
 
 
 app.listen(port, (error) => {

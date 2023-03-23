@@ -1,17 +1,19 @@
 <main>
   <div class="layout-container">
-      <div class="main-content" style="width: 80%;margin-bottom: 550px;">
+      <div class="main-content" style="width: 80%;margin-bottom: 300px;">
         <h1 class="mb-4">
           Edit Profile
         </h1>
-        <div id="sign-up-form" style="margin-left: 20%;">
-          <div id="signup-form-data">
+        <div id="edit-response">
+        </div>
+        <div id="edit-profile-form" style="margin-left: 20%;">
+          <div id="edit-profile-form-data">
             <div class="form-group">
               <div class="form-control-plaintext mb-3">
                 <label for="profile-username">
                   Username
                 </label>
-                <input readonly type="text" class="form-control" id="edit-profile-username" style="width: 25%;">
+                <input type="text" class="form-control" id="edit-profile-username" style="width: 25%;">
               </div>
             </div>
             <div class="form-group">
@@ -19,15 +21,17 @@
                 <label for="profile-email">
                   E-mail
                 </label>
-                <input readonly type="email" class="form-control" id="edit-profile-email" style="width: 25%;">
+                <input type="email" class="form-control" id="edit-profile-email" style="width: 25%;">
               </div>
             </div>
             <div class="form-group">
               <div class="form-control-plaintext mb-3">
                 <label for="profile-password1">
-                  New password
+                  New password (minimum 8 characters)<br>
+                  <small class="text-muted">
+                    Leave blank if you don't want to change your password
                 </label>
-                <input readonly type="password" class="form-control" id="edit-profile-password1" style="width: 25%;">
+                <input type="password" class="form-control" id="edit-profile-password1" style="width: 25%;">
               </div>
             </div>
             <div class="form-group">
@@ -35,7 +39,7 @@
                 <label for="profile-password2">
                   Confirm password
                 </label>
-                <input readonly type="password" class="form-control" id="edit-profile-password2" style="width: 25%;">
+                <input type="password" class="form-control" id="edit-profile-password2" style="width: 25%;">
               </div>
             </div>
           </div>

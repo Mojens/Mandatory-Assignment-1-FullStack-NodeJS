@@ -35,8 +35,13 @@ document.getElementById("sign-up-btn").addEventListener("click", async function 
     password2Element.validity.valid
 
     if (password1Element.value !== password2Element.value) {
-        alert("Passwords do not match");
-    } else {
+        document.getElementById("response-message").innerText = DOMPurify.sanitize("Passwords don't match");
+        document.getElementById("response-message").style.color = "red";
+    } else if (password1Element.value.length < 8) {
+        document.getElementById("response-message").innerText = DOMPurify.sanitize("Password must be at least 8 characters long");
+        document.getElementById("response-message").style.color = "red";
+    }
+     else {
         const user = {
             username: usernameElement.value,
             email: emailElement.value,
@@ -54,6 +59,7 @@ document.getElementById("sign-up-btn").addEventListener("click", async function 
         const data = await response.json();
         if (data.status === 200) {
             document.getElementById("response-message").innerText = data.succes;
+            document.getElementById("response-message").style.color = "green";
             document.getElementById("text-over-signup").style.display = "none";
             document.getElementById("signup-form-data").style.display = "none";
             document.getElementById("sign-up-btn").innerText = "Go to login";
@@ -63,6 +69,7 @@ document.getElementById("sign-up-btn").addEventListener("click", async function 
         }
         if (data.status === 409) {
             document.getElementById("response-message").innerText = data.error;
+            document.getElementById("response-message").style.color = "red";
         }
 
     }

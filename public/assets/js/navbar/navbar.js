@@ -10,10 +10,10 @@ if (localStorage.getItem("token")) {
 type="submit" id="login-btn-navbar">Logout</button></a>
 `);
     adminPanelNavbar.innerHTML = DOMPurify.sanitize(`
-<a class="nav-link" href="admin-panel">Admin panel</a>
+<a class="nav-link" href="/admin-panel">Admin panel</a>
 `);
     loggedInUser.innerHTML = DOMPurify.sanitize(`
-<a class="nav-link" href="admin-panel">Logged in as: <br>${localStorage.getItem("username")}</a>
+<a class="nav-link" href="/admin-panel">Logged in as: <br>${localStorage.getItem("username")}</a>
 `);
 
 } else {
