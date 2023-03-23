@@ -70,6 +70,9 @@ const serverRenderingPage = templateEngine.renderPage(templateEngine.readPage(".
 
 const clientServerRedirectionPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/client-vs-server-redirection/client-vs-server-redirection.html"), {
     tabTitle: "Node.js | Client vs Server Redirection",
+    cssLink: `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/monokai-sublime.min.css">`,
+    scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
+                 <script>hljs.highlightAll();</script>`,
 });
 
 const typeModulePage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/commonjs-vs-nodejs-type-module/commonjs-vs-module.html"), {

@@ -1,5 +1,49 @@
-    <main>
-        <div class="container mt-5">
-            <h1 class="mb-4">Client vs Server redirection</h1>
+<main>
+    <div class="container mt-5">
+        <h1 class="mb-4">Client vs Server redirection</h1>
+        <div id="client-server-redirection-introduction">
+            <h2>Introduction</h2>
+            <p>
+                There is 2 main types og web-redirection they are called client and server redirection:<br>
+                They both sends a user to a different web page, but they achieve in 2 different ways.<br>
+                Client redirection is done by the browser, and server redirection is done by the server.
+                <br>
+                <b>Here is some examples: </b>
+            </p>
         </div>
-    </main>
+        <div id="client-server-redirection-client">
+            <h2>Client redirection</h2>
+            <p>
+                Client redirection is done by the browser, and it is done by using the <code>location</code> object.<br>
+                The <code>location</code> object is a property of the <code>window</code> object.<br>
+                The <code>location</code> object has a property called <code>href</code>, and this property is used to set the url of the page that the user will be redirected to.<br>
+                <b>Here is an example: </b>
+            </p>
+            <pre>
+                <code class="hljs javascript justify-content-center align-content-lg-center w-50">
+    window.location.href = '/visitors';
+                </code>
+            </pre>
+        </div>
+        <div id="client-server-redirection-server">
+            <h2>Server redirection</h2>
+            <p>
+                Server redirection is done by the server, and it is done by using the <code>res.redirect()</code> method.<br>
+                The <code>res.redirect()</code> method is a method of the <code>res</code> object.<br>
+                The <code>res.redirect()</code> method takes a url as a parameter, and this url is the url of the page that the user will be redirected to.<br>
+                <b>Here is an example: </b>
+            </p>
+            <pre>
+                <code class="hljs javascript justify-content-center align-content-lg-center w-50">
+ app.get("/api/guards", (req, res) => {
+    if (req.query.passport === "theskyisblue") {
+      return res.redirect("/api/tanks")
+    }
+    res.send({ error: "You are not allowed to enter the museum" })
+  });
+                </code>
+            </pre>
+
+        </div>
+    </div>
+</main>
