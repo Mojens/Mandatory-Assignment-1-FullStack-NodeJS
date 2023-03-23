@@ -1,5 +1,60 @@
-    <main>
-        <div class="container mt-5">
-            <h1 class="mb-4">CommonJS vs type module</h1>
+<main>
+    <div class="container mt-5">
+        <h1 class="mb-4">CommonJS vs type module</h1>
+        <div id="common-vs-type-introduction">
+            <h2>Introduction</h2>
+            <p>
+                When you are writing javascript code, there is different ways of importing and exporting modules.<br>
+                The two different are CommonJS and type module. they both have the purpose of organizing and making it
+                more reuasble and more readable.<br>
+            </p>
         </div>
-    </main>
+        <div id="common-vs-type-commonJS">
+            <h2>CommonJS</h2>
+            <p>
+                CommonJS is based on sychronous approach. it uses <code>require()</code> to import modules and
+                <code>module.exports</code> to export modules.<br>
+            </p>
+            <pre>
+                <code class="hljs javascript justify-content-center align-content-lg-center w-50">
+    // Importing module
+    const module = require('./module.js');
+
+    // Exporting module
+    module.exports = {
+        name: 'John Doe',
+        email: 'JohnDoe@outlook.dk'
+    }
+                </code>
+            </pre>
+            <p>
+                It is important to note that the <code>require()</code> method is synchronous. This means that the
+                code will not continue until the module is loaded.<br>
+                This is not a problem if you are working with small modules, but if you are working with large modules
+                it can be a problem.<br>
+            </p>
+        </div>
+        <div id="common-vs-type-typemodule">
+            <h2>Type module</h2>
+            <p>
+                Type module is based on asynchronous approach. it uses <code>import</code> to import modules and
+                <code>export</code> to export modules.<br>
+            </p>
+            <pre>
+                <code class="hljs javascript justify-content-center align-content-lg-center w-50">
+    // Importing module
+    import { name, email } from './module.js';
+
+    // Exporting module
+    export const name = 'John Doe';
+    export const email = 'JohnDoe@outlook.dk'
+
+    export default {
+        name,
+        email
+    }
+                </code>    
+                </pre>
+        </div>
+    </div>
+</main>
