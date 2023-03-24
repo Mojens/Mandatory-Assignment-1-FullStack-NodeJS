@@ -46,8 +46,11 @@ const timePage = templateEngine.renderPage(templateEngine.readPage("./public/pag
 
 /* Node.js */
 
-const expressPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/express/express.html"), {
-    tabTitle: "Node.js | Express",
+const expressNodemonPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/express-and-nodemon/express-and-nodemon.html"), {
+    tabTitle: "Node.js | Express & Nodemon",
+    cssLink: `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/monokai-sublime.min.css">`,
+    scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
+                 <script>hljs.highlightAll();</script>`,
 });
 
 const htmlExpressPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/html-express/html-express.html"), {
@@ -159,7 +162,7 @@ export default {
     callbackFunctionsPage,
     loopsPage,
     timePage,
-    expressPage,
+    expressNodemonPage,
     htmlExpressPage,
     packageJsonPage,
     serverRenderingPage,

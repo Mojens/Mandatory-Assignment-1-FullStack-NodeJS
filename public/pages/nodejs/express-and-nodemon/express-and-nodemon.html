@@ -1,0 +1,102 @@
+<main>
+    <div class="container mt-5">
+        <h1 class="mb-4"><a href="#express-nodemon-express" style="text-decoration: none;color: black;">Express</a> and
+            <a href="#express-and-nodemon-nodemon" style="text-decoration: none;color: black;">Nodemon</a>
+        </h1>
+
+        <div id="express-nodemon-express">
+            <h2>Express</h2>
+            <p>
+                Express is a Node.js web application framework, which is used to build web applications and APIs.
+            </p>
+            <div id="express-installation">
+                <h3>Installation</h3>
+                <p>
+                    To install Express, open a terminal and run the following command:
+                </p>
+                <pre>
+                 <code class=" justify-content-center align-content-center w-25">
+        npm install express
+                    </code>
+                </pre>
+            </div>
+            <div id="express-example">
+                <h3>Example</h3>
+                <p>
+                    Here is a simple example with "Hello World" in Express:
+                </p>
+                <pre>
+                    <code class=" justify-content-center align-content-center w-50">
+    const express = require('express')
+    const app = express()
+
+    app.get('/', (req, res) => {
+      res.send('Hello World!')
+    })
+
+    app.listen(3000, () => {
+      console.log('Server started on port 3000')
+    })
+                    </code>
+                </pre>
+            </div>
+            <div id="express-response-request">
+                <h3>Response & Request</h3>
+                <p>
+                    The request object represents the HTTP request and has properties for the request query string,
+                    parameters, body, HTTP headers, and so on.<br>
+                    The response object represents the HTTP response that an Express app sends when it gets an HTTP
+                    request.<br>
+                    <b>Here is an example:</b>
+                </p>
+                <pre>
+                    <code class=" justify-content-center align-content-center" style="width: 60%;">
+    app.get('/tank/:id', (req, res) => {
+        const id = req.params.id
+        // req.params.id is the id that is passed in the url
+        res.send('The tank id is: ' + id)
+        // res.send() is used to send a response to the client
+        // res.send() can be used to send a string, an array, an object, a buffer, etc.
+    })
+                    </code>
+                </pre>
+
+            </div>
+            <div id="express-routing">
+                <h3>Routing</h3>
+                <p>
+                    Routing is how the application’s endpoints respond to client requests.<br>
+                    <b>The following code is an example of a simple route:</b>
+                </p>
+                <pre>
+                    <code class=" justify-content-center align-content-center" style="width: 60%;">
+    app.get('/', (req, res) => {
+        res.send('Hello World!')
+    })
+                    </code>
+                </pre>
+                <p>
+                    it means that when the client sends a GET request to the root path (/), the app will respond with
+                    "Hello World!".<br>
+                    You can also use the POST, PUT, DELETE, and other <a href="/api-convention#api-convention-http-methods">HTTP methods.</a><br>
+                    <b>Here is an example:</b>
+                </p>
+                <pre>
+                    <code class=" justify-content-center align-content-center" style="width: 60%;">
+    const listOfNames = []
+    app.post('/addName', (req, res) => {
+        listOfNames.push(req.body.name)
+        res.send('Got a POST request with the name: ' + req.body.name)
+    })
+                    </code>
+                </pre>
+                <p>
+                    It means that when the client sends a POST request to the path (/addName) with the key "name" in the
+                    body, the app will respond with
+                    "Got a POST request with the name: + (the value of the key that was sent with the body)".
+                </p>
+
+            </div>
+        </div>
+    </div>
+</main>

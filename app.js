@@ -49,8 +49,8 @@ app.get('/time/', (req, res) => {
 
 // Node.js
 
-app.get('/express/', (req, res) => {
-    res.send(pageGenerator.expressPage);
+app.get('/express-nodemon/', (req, res) => {
+    res.send(pageGenerator.expressNodemonPage);
 });
 
 app.get('/html-express/', (req, res) => {
