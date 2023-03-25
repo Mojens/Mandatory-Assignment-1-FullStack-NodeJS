@@ -26,7 +26,7 @@ const variablesPage = templateEngine.renderPage(templateEngine.readPage("./publi
     scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
                  <script>hljs.highlightAll();</script>`,
 });
-});
+
 
 const cleanCodePage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/clean-code/clean-code.html"), {
     tabTitle: "JS | Clean Code & Code Conventions",
@@ -34,7 +34,7 @@ const cleanCodePage = templateEngine.renderPage(templateEngine.readPage("./publi
     scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
                  <script>hljs.highlightAll();</script>`,
 });
-});
+
 
 const variablesFunctionsPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/variables-functions/variables-functions.html"), {
     tabTitle: "JS | Variables & Functions",
@@ -42,7 +42,7 @@ const variablesFunctionsPage = templateEngine.renderPage(templateEngine.readPage
     scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
                  <script>hljs.highlightAll();</script>`,
 });
-});
+
 
 const callbackFunctionsPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/callback-functions/callback-functions.html"), {
     tabTitle: "JS | Callback & Functions",
@@ -50,7 +50,7 @@ const callbackFunctionsPage = templateEngine.renderPage(templateEngine.readPage(
     scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
                  <script>hljs.highlightAll();</script>`,
 });
-});
+
 
 const loopsPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/loops/loops.html"), {
     tabTitle: "JS | Loops",
@@ -58,7 +58,7 @@ const loopsPage = templateEngine.renderPage(templateEngine.readPage("./public/pa
     scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
                  <script>hljs.highlightAll();</script>`,
 });
-});
+
 
 const timePage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/time/time.html"), {
     tabTitle: "JS | Time",
@@ -66,7 +66,7 @@ const timePage = templateEngine.renderPage(templateEngine.readPage("./public/pag
     scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
                  <script>hljs.highlightAll();</script>`,
 });
-});
+
 
 /* Node.js */
 
