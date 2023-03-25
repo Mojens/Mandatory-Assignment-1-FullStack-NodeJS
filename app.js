@@ -53,10 +53,6 @@ app.get('/express-nodemon/', (req, res) => {
     res.send(pageGenerator.expressNodemonPage);
 });
 
-app.get('/html-express/', (req, res) => {
-    res.send(pageGenerator.htmlExpressPage);
-});
-
 app.get('/package-json', (req, res) => {
     res.send(pageGenerator.packageJsonPage);
 });

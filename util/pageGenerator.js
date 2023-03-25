@@ -53,10 +53,6 @@ const expressNodemonPage = templateEngine.renderPage(templateEngine.readPage("./
                  <script>hljs.highlightAll();</script>`,
 });
 
-const htmlExpressPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/html-express/html-express.html"), {
-    tabTitle: "Node.js | HTML & Express",
-});
-
 const packageJsonPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/nodejs/package-json/package-json.html"), {
     tabTitle: "Node.js | package.json",
     cssLink: `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/monokai-sublime.min.css">`,
@@ -163,7 +159,6 @@ export default {
     loopsPage,
     timePage,
     expressNodemonPage,
-    htmlExpressPage,
     packageJsonPage,
     serverRenderingPage,
     clientServerRedirectionPage,

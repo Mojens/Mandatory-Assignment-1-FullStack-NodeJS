@@ -78,7 +78,8 @@
                 <p>
                     it means that when the client sends a GET request to the root path (/), the app will respond with
                     "Hello World!".<br>
-                    You can also use the POST, PUT, DELETE, and other <a href="/api-convention#api-convention-http-methods">HTTP methods.</a><br>
+                    You can also use the POST, PUT, DELETE, and other <a
+                        href="/api-convention#api-convention-http-methods">HTTP methods.</a><br>
                     <b>Here is an example:</b>
                 </p>
                 <pre>
@@ -92,9 +93,54 @@
                 </pre>
                 <p>
                     It means that when the client sends a POST request to the path (/addName) with the key "name" in the
-                    body, the app will respond with
+                    body, <br>the app will respond with
                     "Got a POST request with the name: + (the value of the key that was sent with the body)".
                 </p>
+
+            </div>
+        </div>
+        <div id="express-and-nodemon-nodemon">
+            <h2>Nodemon</h2>
+            <p>
+                Nodemon is a tool to help you develop node.js applications.<br>
+                What nodemon does is that it watches for any changes in your source and automatically restarts your
+                server.<br>
+                This is very useful when you are developing an application and you want to see the changes you made
+                immediately.<br>
+                Also nodemon runs your application and with express you can create a server and run it.
+            </p>
+            <div id="nodemon-installation">
+                <h3>Installation</h3>
+                <p>
+                    To install Nodemon, open a terminal and run the following command:
+                </p>
+                <pre>
+                    <code class=" justify-content-center align-content-center w-25">
+        npm install -g nodemon
+                    </code>
+                </pre>
+                <p>The -g flag installs nodemon globally, so you can use it from any directory.</p>
+            </div>
+            <div id="nodemon-example">
+                <h3>Example</h3>
+                <p>
+                    To use nodemon, we replace the node command with nodemon in the command line.
+                </p>
+                <pre>
+                    <code class="w-25">
+          nodemon app.js
+                    </code>
+                </pre>
+                <p>Nodemon will start your application and monitor the directory for changes. <br>If it detects any changes,
+                    it will automatically restart the server. <br>Inside of Nodemon.json, there is a key called <code>"ext"</code> here you can change the value so you tell it which <br>files nodemon should look after so it knows when to restart when the files changes</p>
+                    <pre>
+    <b>Nodemon.json</b>
+                        <code class=" justify-content-center align-content-center w-25" >
+    {
+        "ext": "js, json, html"
+    }
+                        </code>
+                    </pre>
 
             </div>
         </div>
