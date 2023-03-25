@@ -39,8 +39,8 @@ app.get('/callback-functions/', (req, res) => {
     res.send(pageGenerator.callbackFunctionsPage);
 });
 
-app.get('/loops/', (req, res) => {
-    res.send(pageGenerator.loopsPage);
+app.get('/loopsAndArray/', (req, res) => {
+    res.send(pageGenerator.loopsAndArrayPage);
 });
 
 app.get('/time/', (req, res) => {

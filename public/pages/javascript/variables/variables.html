@@ -1,6 +1,82 @@
-    <main>
-        <div class="container mt-5">
-            <h1 class="mb-4">Variables</h1>
+<main>
+    <div class="container mt-5">
+        <h1 class="mb-4 mt-5">Variables & Data Types</h1>
+        <div id="variables-data-types-introduction">
+            <p>Variables are kind of containers to store data values.</p>
+            <p>There are 3 ways to declare a variable in JavaScript:</p>
+            <pre>
+                <code class="hljs javascript w-25">
+    var x = 5;
+    let y = 10;
+    const z = 15;
+                </code>
+            </pre>
         </div>
-    </main>
-   
+        <div id="variables-data-types-var-let-const-difference">
+            <h2 class="mt-5 mb-4">Difference between var, let and const</h2>
+            <p>
+                <b>var</b>: you can declare a variable that can be changed later.<br>
+                <b>let</b>: you can also declare a variable that can be changed later.<br>
+                <b>const</b>: you can declare a variable that cannot be changed later.<br>
+                <b>Here is some examples:</b>
+            </p>
+            <pre>
+                <code class="hljs javascript w-50">
+    var x = 5;
+    x = 10;
+    console.log(x); // 10
+
+    let y = 5;
+    y = 10;
+    console.log(y); // 10
+
+    const z = 5;
+    z = 10; // error
+
+    const obj = {
+        name: "John",
+        age: 30
+    };
+    // even if the object is a const, you can still change the properties
+    obj.name = "Peter"; // This is allowed
+                </code>
+            </pre>
+        </div>
+        <div id="variables-data-types-data-types">
+            <h2 class="mt-5 mb-4">Data Types</h2>
+            <p>JavaScript has dynamic data types. This means that the same variable can be used to hold different data
+                types:</p>
+            <pre>
+                <code class="hljs javascript w-50">
+    var x; // Now x is undefined
+    x = 5; // Now x is a Number
+    x = "John"; // Now x is a String
+                </code>
+            </pre>
+            <p>JavaScript has these data types:</p>
+            <ul>
+                <li>String</li>
+                <li>Number</li>
+                <li>Boolean</li>
+                <li>Array</li>
+                <li>Object</li>
+                <li>Function</li>
+                <li>Undefined</li>
+            </ul>
+            <p><b>Here are some examples:</b></p>
+            <pre>
+                <code class="hljs javascript w-50">
+    var x = "John"; // String
+    var y = 123; // Number
+    var z = true; // Boolean
+    var a = ["John", "Peter", "Sally"]; // Array
+    var b = {name: "John", age: 30}; // Object
+    var c = function() { // Function
+        console.log("Hello World!");
+    };
+    var d; // Undefined
+                </code>
+            </pre>
+        </div>
+    </div>
+</main>

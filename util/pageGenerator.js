@@ -52,7 +52,7 @@ const callbackFunctionsPage = templateEngine.renderPage(templateEngine.readPage(
 });
 
 
-const loopsPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/loops/loops.html"), {
+const loopsAndArrayPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/loops-and-arrays/loops-and-arrays.html"), {
     tabTitle: "JS | Loops",
     cssLink: `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/monokai-sublime.min.css">`,
     scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
@@ -180,7 +180,7 @@ export default {
     cleanCodePage,
     variablesFunctionsPage,
     callbackFunctionsPage,
-    loopsPage,
+    loopsAndArrayPage,
     timePage,
     expressNodemonPage,
     packageJsonPage,
