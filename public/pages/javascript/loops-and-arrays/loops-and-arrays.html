@@ -1,5 +1,126 @@
-    <main>
-        <div class="container mt-5">
-            <h1 class="mb-4">Loops & Arrays</h1>
+<main>
+    <div class="container mt-5">
+        <h1 class="mb-4"><a href="#loops-and-arrays-loops" style="text-decoration: none;color: black;">Loops</a> &
+            <a href="#loops-and-arrays-arrays" style="text-decoration: none;color: black;">Arrays</a>
+        </h1>
+        <div id="loops-and-arrays-introduction">
+            <h2>Introduction</h2>
+            <p>
+                Loops and arrays are two very important concepts in javascript.<br>
+                They are used in almost every program you will ever write.<br>
+            </p>
         </div>
-    </main>
+        <div id="loops-and-arrays-arrays">
+            <h2 class="mt-5 mb-4">Arrays</h2>
+            <p>
+                Arrays are used to store multiple values in a single variable.<br>
+                They are declared using square brackets and can be initialized with a set of elements.<br>
+                <b>Here is an example:</b>
+            </p>
+            <pre>
+                    <code class="hljs javascript w-50">
+    const numbers = [1, 2, 3, 4, 5];
+    const fruits = ["apple", "banana", "orange"];
+    const persons = [
+      {name: "John", age: 30},
+      {name: "Mary", age: 25},
+      {name: "Bob", age: 40}
+    ];
+                    </code>
+                    </pre>
+
+
+            <p>
+                <b>Arrays are zero-indexed.</b><br>
+                This means that the first element in an array is at index 0.<br>
+                The second element is at index 1, and so on.<br>
+            </p>
+            <div id="loops-and-arrays-arrays-how-to-enter">
+                <h3 class="mt-5 mb-4">How to enter an array</h3>
+                <p>
+                    To enter an array, you use the index of the element you want to enter.<br>
+                    <b>Here is an example:</b>
+                </p>
+                <pre>
+                    <code class="hljs javascript w-50">
+    console.log(numbers[0]); // Output: 1
+    console.log(fruits[1]); // Output: "banana"
+    console.log(persons[2].name); // Output: "Bob"
+                    </code>
+                    </pre>
+            </div>
+        </div>
+        <div id="loops-and-arrays-loops">
+            <h2 class="mt-5 mb-4">Loops</h2>
+            <p>
+                Loops are used to repeat a block of code a certain number of times.<br>
+                There are three types of loops in javascript: <b>for</b>, <b>while</b> and <b>do-while</b>.<br>
+                <b>Here is some examples:</b>
+            </p>
+            <div id="loops-and-arrays-loops-for-loops">
+                <h3 class="mt-5 mb-4">For loops</h3>
+                <p>
+                    For loops are used to repeat code a certain number of times.<br>
+                    <b>Here is an example:</b>
+                </p>
+                <pre>
+                    <code class="hljs javascript w-25">
+    for (let i = 0; i < 5; i++) {
+        console.log(i);
+    }
+                    </code>
+                    </pre>
+                <p>
+                    This will output the numbers 0 to 4.<br>
+                    The first part of the for loop is where we declare the variable we'll use in the loop.<br>
+                    Afterwards we write the condition, where it must be true for the loop to continue in this part
+                    (<b>i</b> is smaller than 5).<br>
+                    The last part is where we increment the variable.<br>
+                </p>
+
+            </div>
+            <div id="loops-and-arrays-loops-while-loops">
+                <h3 class="mt-5 mb-4">While loops</h3>
+                <p>
+                    While loops are used to repeat code while a condition is true.<br>
+                    <b>Here is an example:</b>
+                </p>
+                <pre>
+                    <code class="hljs javascript w-25">
+  const numbers = [1, 2, 3, 4, 5];
+  let i = 0;  
+  while (i < numbers.length) {
+    console.log(numbers[i]);
+    i++;
+  }
+                    </code>
+                    </pre>
+                <p>
+                    This will console.log the numbers 1 to 5.<br>
+                    It has The condition that as long <b>i</b> is smaller than the length of the array it will keep
+                    doing whats inside the codeblock in the while-loop.<br>
+                    The variable <b>i</b> is incremented in the loop. So after 5 times it would stop because then the
+                    condition is not true anymore<br>
+                </p>
+            </div>
+            <div id="loops-and-arrays-loops-do-while-loop">
+                <h3 class="mt-5 mb-4">Do-while loops</h3>
+                <p>
+                    Do-while loops are used to repeat code while a condition is true. Just like a normal while loop<br>
+                    <b>Here is an example:</b>
+                </p>
+                <pre>
+                    <code class="hljs javascript w-25">
+    let i = 0;
+
+    do {
+      console.log(i);
+      i++;
+    } while (i < 5);
+                    </code>
+                    </pre>
+            </div>
+            
+        </div>
+    </div>
+</main>
