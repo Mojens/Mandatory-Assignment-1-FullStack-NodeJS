@@ -1,5 +1,56 @@
-    <main>
-        <div class="container mt-5">
-            <h1 class="mb-4">Time</h1>
+<main>
+    <div class="container mt-5">
+        <h1 class="mb-4">Time</h1>
+        <div id="time-date-object">
+            <h2 class="mb-4 mt-5">Date object</h2>
+            <p>
+                To work with time in javascript, you use the <b>Date</b> object.<br>
+                <b>Here is an example:</b>
+            </p>
+            <pre>
+                        <code class="hljs javascript w-75">
+    const date = new Date();
+    // This creates a new Date object, which is the current date and time.
+    Date.now();
+    // This returns the current date and time in milliseconds.
+    Date.parse("XXXX-XX-XX");
+    // This parses a date in String format and returns the number of milliseconds since the date
+    Date.UTC();
+    // This returns the number of milliseconds in a date since 01-01-1970.
+
+                        </code>
+                    </pre>
+
+
         </div>
-    </main>
+        <div id="time-date-methods">
+            <h2 class="mb-4 mt-5">Date methods</h2>
+            <p>
+                The <b>Date</b> object has a lot of methods, that you can use.<br>
+                <b>Here are some examples:</b>
+            </p>
+            <pre>
+                        <code class="hljs javascript w-75">
+    const date = new Date();
+    date.getDate();
+    // This returns the day of the month (1-31)
+    date.getDay();
+    // This returns the day of the week (0-6)
+    date.getFullYear();
+    // This returns the year (four digits)
+    date.getHours();
+    // This returns the hour (0-23)
+    date.getMilliseconds();
+    // This returns the milliseconds (0-999)
+    date.getFullYear();
+    // This returns the year (four digits)
+    date.getMonth();
+    // This returns the month (0-11)
+    date.toLocaleDateString()
+    // This returns the date as a string, using the browser's locale
+                        </code>
+                    </pre>
+
+        </div>
+    </div>
+</main>
