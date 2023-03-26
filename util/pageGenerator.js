@@ -35,15 +35,6 @@ const cleanCodePage = templateEngine.renderPage(templateEngine.readPage("./publi
                  <script>hljs.highlightAll();</script>`,
 });
 
-
-const variablesFunctionsPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/variables-functions/variables-functions.html"), {
-    tabTitle: "JS | Variables & Functions",
-    cssLink: `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/monokai-sublime.min.css">`,
-    scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
-                 <script>hljs.highlightAll();</script>`,
-});
-
-
 const callbackFunctionsPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/callback-functions/callback-functions.html"), {
     tabTitle: "JS | Callback & Functions",
     cssLink: `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/monokai-sublime.min.css">`,
@@ -178,7 +169,6 @@ export default {
     loginPage,
     variablesPage,
     cleanCodePage,
-    variablesFunctionsPage,
     callbackFunctionsPage,
     loopsAndArrayPage,
     timePage,

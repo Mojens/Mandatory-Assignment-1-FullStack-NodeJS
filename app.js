@@ -9,7 +9,6 @@ app.use(session({
     resave: false, // Determines whether to save the session to the store on every request. true saves even if not modified, false saves only if modified.
     saveUninitialized: true //  Determines whether to create a session even if not modified during the request. true creates session even for anonymous users, false only creates if modified.
 }));
-const port = 8080;
 
 app.use(express.static("public"));
 
@@ -29,10 +28,6 @@ app.get('/variables/', (req, res) => {
 
 app.get('/clean-code/', (req, res) => {
     res.send(pageGenerator.cleanCodePage);
-});
-
-app.get('/variables-functions/', (req, res) => {
-    res.send(pageGenerator.variablesFunctionsPage);
 });
 
 app.get('/callback-functions/', (req, res) => {
@@ -233,7 +228,8 @@ app.get('*', function (req, res) {
     res.send(pageGenerator.pageNotFound);
 });
 
-
+// Server
+const port = 8080;
 app.listen(port, (error) => {
     if (error) {
         console.log(error);

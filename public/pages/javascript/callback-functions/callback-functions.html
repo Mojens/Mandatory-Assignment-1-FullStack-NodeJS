@@ -1,5 +1,123 @@
-    <main>
-        <div class="container mt-5">
-            <h1 class="mb-4">Callback & Functions</h1>
+<main>
+    <div class="container mt-5">
+        <h1 class="mb-4"><a href="#functions-and-callback-functions-functions"
+                style="text-decoration: none;color: black;">Functions</a> &
+            <a href="#functions-and-callback-functions-callback" style="text-decoration: none;color: black;">Callback
+                Functions</a>
+        </h1>
+        <div id="functions-and-callback-functions-introduction">
+            <h2>Introduction</h2>
+            <p>
+                We talked about variables that you can read about <a href="/variables">here</a>.<br>
+                Functions is a block of code that can be executed when called.<br>
+                Functions are declared with the <b>function</b> keyword.<br>
+                Callback functions are functions that are passed as arguments to other functions.<br>
+                Callback functions are executed after the current function has finished.<br>
+            </p>
         </div>
-    </main>
+        <div id="functions-and-callback-functions-functions">
+            <div id="functions-intro">
+                <h2 class="mb-4 mt-5">Functions</h2>
+                <p>
+                    <b>Functions</b> are declared with the <b>function</b> keyword.<br>
+                    <b>Functions</b> are executed when they are called.<br>
+                    <b>Functions</b> can be called as many times as you want.<br>
+                    <b>Functions</b> can be declared before or after they are called.<br>
+                    <b>Functions</b> can be declared with parameters.<br>
+                    <b>Functions</b> can be declared with a return value.<br>
+                </p>
+                <p>
+                    <b>Here is some examples:</b>
+                </p>
+            </div>
+            <div id="functions-examples">
+                <p>
+                    To define a function, you use the <code>function</code> keyword followed by the name of the function
+                    and a set of parentheses.<br>
+                    Inside the parentheses, you can list any arguments that the function will take.<br>
+                    Finally, you use curly braces to enclose the code that makes up the function's body.</p>
+                <pre>
+    Example 1:
+                    <code class="hljs javascript w-50">
+    function myFunction() {
+        console.log("Hello World!");
+    }
+    // Call the function
+    myFunction();
+    // Output: Hello World!
+                    </code>
+                 </pre>
+                <pre>
+    Example 2:
+                    <code class="hljs javascript w-50">
+    function addNumbers(a, b){
+        return a + b;
+    }                
+    // Call the function
+    console.log(addNumbers(1, 2));
+    // Output: 3
+                    </code>
+                 </pre>
+                <pre>
+    Example 3:
+                    <code class="hljs javascript w-50">
+    function greetings(name){
+        return "Greetings " + name + " my good old friend.";
+    }
+    // Call the function
+    console.log(greetings("John"));
+    // Output: Greetings John my good old friend.
+                    </code>
+                 </pre>
+            </div>
+
+        </div>
+        <div id="functions-and-callback-functions-callback">
+            <h2 class="mb-4 mt-5">Callback Functions</h2>
+            <p>
+                Callback functions are functions that are passed as arguments to other functions.<br>
+                Callback functions are executed after the current function has finished.<br>
+                <b>Here is some examples:</b>
+            </p>
+            <div id="functions-and-callback-functions-callback-examples">
+                <pre>
+    Example 1:
+                    <code class="hljs javascript w-50">
+    function greetings(name, callback) {
+        console.log('Hello, ' + name + '!');
+        // Output: Hello, John!
+        callback();
+        // Call the callback function
+    }
+    
+    function sayGoodbye() {
+        console.log('Goodbye!');
+    }
+
+    greet('John', sayGoodbye);
+    // Output: Hello, John!
+                    </code>
+                </pre>
+                <pre>
+    Example 2:
+                    <code class="hljs javascript w-50">
+    const port = 8080;
+    app.listen(port, (error) => {
+        if (error) {
+            // If there is an error, log it to the console
+            console.log(error);
+        }
+        // If there is no error, we log the port number to the console
+        console.log(`Server started on port ${port}`);
+    });
+                    </code>
+                </pre>
+                <p>
+                    The <code>app.listen()</code> function takes two arguments, the port number and a callback function.<br>
+                    The callback function is executed after the server has started.<br>
+                    The callback function takes an error as an argument.<br>
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
