@@ -1,19 +1,79 @@
 <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+        <h4 class="modal-title">Table of contents</h4>
+      </div>
+      <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
+        <div id="table-of-contents">
+          <h3>JavaScript</h3>
+          <ul>
+            <li><a href="/variables">Variables & Data Types</a></li>
+            <li><a href="/clean-code">Clean Code & Code Conventions</a></li>
+            <li><a href="/callback-functions">Callback Functions & Functions</a></li>
+            <li><a href="/loopsAndArray">Loops and Loop Methods</a></li>
+            <li><a href="/time">Time</a></li>
+          </ul>
+          <h3>Node.js</h3>
+          <ul>
+            <li><a href="/express-nodemon">Express & Nodemon</a></li>
+            <ul>
+              <li><a href="/express-nodemon#express-nodemon-express">Express</a></li>
+              <ul>
+                <li><a href="/express-nodemon#express-installation">Installation</a></li>
+                <li><a href="/express-nodemon#express-example">Example</a></li>
+                <li><a href="/express-nodemon#express-response-request">Response & Request</a></li>
+                <li><a href="/express-nodemon#express-routing">Routing</a></li>
+              </ul>
+              <li><a href="/express-nodemon#express-and-nodemon-nodemon">Nodemon</a></li>
+              <ul>
+                <li><a href="/express-nodemon#nodemon-installation">Installation</a></li>
+                <li><a href="/express-nodemon#nodemon-example">Example</a></li>
+              </ul>
+            </ul>
+            <li><a href="/package-json">package.json</a></li>
+            <li><a href="/server-rendering">SSR (Server-side rendering)</a></li>
+            <li><a href="/type-module">CommonJS vs type module in Nodejs</a></li>
+            <li><a href="/client-server-redirection">Client-side redirection vs server-side redirection</a></li>
+          </ul>
+          <h3>Rest API</h3>
+          <ul>
+            <li><a href="/api-convention">API convention</a></li>
+            <ul>
+              <li><a href="/api-convention#api-convention-introduction">Introduction</a></li>
+              <li><a href="/api-convention#api-convention-http-methods">HTTP Methods</a></li>
+              <li><a href="/api-convention#api-convention-resource-naming">Resource Naming</a></li>
+              <li><a href="/api-convention#api-convention-response-format">Response Format</a></li>
+              <li><a href="/api-convention#api-convention-versioning">Versioning</a></li>
+              <li><a href="/api-convention#api-convention-conclusion">Conclusion</a></li>
+            </ul>
+            <li><a href="/crud">CRUD</a></li>
+            <ul>
+              <li><a href="/crud#crud-introduction">Introduction</a></li>
+              <li><a href="/crud#crud-create">Create</a></li>
+              <li><a href="/crud#crud-read">Read</a></li>
+              <li><a href="/crud#crud-update">Update</a></li>
+              <li><a href="/crud#crud-delete">Delete</a></li>
+            </ul>
+            <li><a href="/fetch">Fetch</a></li>
+            <ul>
+              <li><a href="/fetch#fetch-introduction">Introduction</a></li>
+              <li><a href="/fetch#fetch-get">GET</a></li>
+              <li><a href="/fetch#fetch-send-data">Send Data</a></li>
+            </ul>
+            <li><a href="/get-request">GET Request (Path and Query)</a></li>
+            <ul>
+              <li><a href="/get-request#get-request-anatomy-of-an-url">Anatomy of an URL</a></li>
+              <li><a href="/get-request#get-request-request-parameters">Query Parameters</a></li>
+              <li><a href="/get-request#get-request-path-params">Path Parameters</a></li>
+            </ul>
+          </ul>
         </div>
       </div>
-      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
     </div>
   </div>
 </div>
