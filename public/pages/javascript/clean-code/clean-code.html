@@ -1,6 +1,121 @@
-    <main>
-        <div class="container mt-5">
-            <h1 class="mb-4">Clean Code & Code Conventions
-            </h1>
+<main>
+    <div class="container mt-5">
+        <h1 class="mb-4 mt-5"><a href="#cleancode-codeconventions-comments"
+                style="text-decoration: none;color: black;">Clean Code</a> &
+            <a href="#cleancode-codeconventions-naming-conventions" style="text-decoration: none;color: black;">Code
+                Conventions</a>
+        </h1>
+        <div id="cleancode-codeconventions-introduction">
+            <h2 class="mb-4 mt-5">Introduction</h2>
+            <p>
+                Writing clean, and organized code is a very important part of being a javascript developer.<br>
+                Following some code conventions can make your code more readable and easier to maintain,<br>
+                while also making it more accessible to other developers who may work on the same codebase.<br>
+                Here are some tips to keep in mind when writing JavaScript code:<br>
+            </p>
         </div>
-    </main>
+        <div id="cleancode-codeconventions-naming-conventions">
+            <h2 class="mb-4 mt-5">Naming Conventions</h2>
+            <p>
+                It's important to use descriptive names for variables, functions, and classes.<br>
+                This makes it easier to understand what the code is doing.<br>
+                <b>Here are some examples of good naming conventions:</b><br>
+            </p>
+            <pre>
+                <code class="hljs javascript w-50">
+    // Bad
+    const name1 = "John";
+    const name2 = "Doe";
+
+    // Good
+    const firstName = "John";
+    const lastName = "Doe";
+
+    // Bad
+    function add(a, b) {
+        return a + b;
+    }
+
+    // Good
+    function add(firstNumber, secondNumber) {
+        return firstNumber + secondNumber;
+    }
+                </code>
+            </pre>
+        </div>
+        <div id="cleancode-codeconventions-comments">
+            <h2 class="mb-4 mt-5">Comments</h2>
+            <p>
+                Comments are a great way to explain what your code is doing.<br>
+                However, it's important to not overuse them.<br>
+                Comments should be used to explain complex code, or to explain why you're doing something.<br>
+                <b>Here are some examples of good comments:</b><br>
+            </p>
+            <pre>
+    Example 1:
+                <code class="hljs javascript w-50">
+    const user = {
+        name: "John",
+        age: 25,
+        isLoggedIn: true
+    }
+    // This function checks if the user is logged in
+    function isLoggedIn() {
+        // Check if the user is logged in
+        if (user.isLoggedIn) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+                </code>
+            </pre>
+            <pre>
+    Example 2:
+                <code class="hljs javascript w-75">
+    // This function takes an array as an argument of numbers and returns the average
+    function calculateAverage(numbers) {
+      let sum = 0;
+    
+      // Loops through each number in the array and add it to the sum
+      for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+      }
+    
+      // Calculate the average by dividing the sum by the number of numbers in the array
+      const average = sum / numbers.length;
+    
+      // Return the average value
+      return average;
+    }
+                </code>
+            </pre>
+        </div>
+        <div id="cleancode-codeconventions-functions">
+            <h2 class="mb-4 mt-5">Functions</h2>
+            <p>
+                Functions should be small and do one thing.<br>
+                This makes it easier to understand what the function is doing.<br>
+                <b>Here are some examples of good functions:</b><br>
+            </p>
+            <pre>
+                <code class="hljs javascript w-50">
+    // Bad
+    function add(firstNumber, secondNumber) {
+        const sum = firstNumber + secondNumber;
+        return sum;
+    }
+
+    // Good
+    function add(firstNumber, secondNumber) {
+        return firstNumber + secondNumber;
+    }
+                </code>
+            </pre>
+            <p>
+                You can read more about functions <a href="/callback-functions#functions-and-callback-functions-functions">Here.</a>
+            </p>
+        </div>
+    </div>
+</main>
