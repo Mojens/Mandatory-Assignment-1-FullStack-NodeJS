@@ -135,7 +135,12 @@ app.get('/admin/new-doc-page/', (req, res) => {
 });
 
 app.post('/api/newpage' , (req, res) => {
-    console.log(req.body);
+    const userId = req.session.userId;
+    if (userId) {
+        console.log(req.body);
+    } else {
+        res.redirect('/login');
+    }
 });
 
 

@@ -107,7 +107,8 @@ app.js
             <div id="sentiment-example">
                 <h3 class="mb-4 mt-5">Example</h3>
                 <p>
-                    In this example, we will use the <b>sentiment</b> module to analyze a joke and return the joke if it scores above 0.
+                    In this example, we will use the <b>sentiment</b> module to analyze a joke and return the joke if it
+                    scores above 0.
                 </p>
                 <pre>
 jokes.js
@@ -135,7 +136,8 @@ jokes.js
                 </pre>
                 <p>
                     In the example above, we have a <b>getJoke</b> function that returns a joke. <br>
-                    The function uses the <b>sentiment</b> module to analyze the joke and returns a new joke if the score is below 0.
+                    The function uses the <b>sentiment</b> module to analyze the joke and returns a new joke if the
+                    score is below 0.
                 </p>
             </div>
 
@@ -143,7 +145,112 @@ jokes.js
 
         <div id="tools-express-session">
             <h2 class="mb-4 mt-5">Express Session</h2>
+            <div id="express-session-introduction">
+                <h3 class="mb-4 mt-5">Introduction</h3>
+                <p>
+                    The <b>express-session</b> module is a part of the <b>Node.js</b> library. It is used to create
+                    sessions for your users.<br>
+                    It allows you to create sessions for your users, so you can store data for each user. <br>
+                    I've used this to determine if a user is logged in or not.
+                </p>
+                <p>
+                    To use the <b>express-session</b> module, you must import it into your file and initialize it.
+                </p>
+                <pre><code class="w-50">
+    import session from "express-session";
+    app.use(session({
+        secret: 'SECRET-KEY',
+        resave: false,
+        saveUninitialized: true
+    }));
+    </code>
+                </pre>
+                <p>
+                    In this example above, we have a <b>session</b> variable that contains the <b>express-session</b>
+                    module. <br>
+                    We use the <b>app.use</b> function to initialize the <b>express-session</b> module.<br>
+                    <b>Secret</b> is a long, random string used to sign the session ID cookie to prevent tampering or
+                    spoofing.<br>
+                    <b>Resave</b> determines whether to save the session to the store on every request. true saves even
+                    if not modified, false saves only if modified.<br>
+                    <b>SaveUninitialized</b> determines whether to create a session even if not modified during the
+                    request. true creates session even for anonymous users, false only creates if modified.
+                </p>
+            </div>
+            <div id="express-session-installation">
+                <h3 class="mb-4 mt-5">Installation</h3>
+                <p>
+                    To install the <b>express-session</b> module, you must run the following command in your terminal.
+                </p>
+                <pre><code class="w-25">    npm install express-session</code></pre>
+            </div>
+            <div id="express-session-example">
+                <h3 class="mb-4 mt-5">Example</h3>
+                <p>
+                    In this example, we will use the <b>express-session</b> module to create a session for a user.
+                </p>
+                <pre>
+app.js
+                    <code class="w-75">
+    import session from 'express-session';
+    const app = express();
+    app.use(session({
+        secret: 'SECRET-KEY', 
+        resave: false,
+        saveUninitialized: true
+    }));
 
+    app.post('/api/auth/', (req, res) => {
+        const username = req.body.username;
+        const password = req.body.password;
+        const user = userList.find(user => user.username.toLowerCase() === username.toLowerCase());
+        if (user && user.password === password) {
+            req.session.userId = user.username;
+            res.send({
+                success: 'You have successfully logged in',
+                status: 200,
+                token: user.UUID,
+                username: user.username,
+                email: user.email,
+    
+            });
+        } else {
+            res.send({
+                error: 'Username or password is incorrect',
+                status: 401
+            });
+        }
+    });
+                    </code>
+                </pre>
+                <p>
+                    In the example above, we have a <b>post</b> request that checks if the user exists and if the
+                    password is correct. <br>
+                    If the user exists and the password is correct, we create a session for the user and send some
+                    user data back to the client.
+                </p>
+                <p>
+                    To control the session, you can use the <b>req.session</b> variable.
+                </p>
+                <pre>
+app.js
+                    <code class="w-50">
+    app.get('/admin/edit-profile/', (req, res) => {
+        const userId = req.session.userId;
+        if (userId) {
+            res.send(pageGenerator.editProfilePage);
+        } else {
+            res.redirect('/login');
+        }
+    });
+                    </code>
+                </pre>
+                <p>
+                    In the example above, we have a <b>get</b> request that checks if the user is logged in. <br>
+                    If the user is logged in, we send the <b>editProfilePage</b> to the client. <br>
+                    If the user is not logged in, we redirect the user to the login page.
+                </p>
+            </div>
         </div>
         <div id="tools-cross-env">
             <h2 class="mb-4 mt-5">Cross-env</h2>
@@ -275,6 +382,18 @@ templateEngine.js
             <li class="nav-item">
                 <a class="nav-link" href="#tools-express-session">Express Session</a>
             </li>
+            <ul class="inner-ul">
+                <li class="nav-item">
+                    <a class="nav-link" href="#express-session-introduction">Introduction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#express-session-installation">Installation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#express-session-example">Example</a>
+                </li>
+
+            </ul>
             <li class="nav-item">
                 <a class="nav-link" href="#tools-cross-env">Cross-env</a>
             </li>
@@ -284,7 +403,7 @@ templateEngine.js
             <ul class="inner-ul">
                 <li class="nav-item">
                     <a class="nav-link" href="#escape-introduction">Introduction</a>
-                </li> 
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#escape-installation">Installation</a>
                 </li>
