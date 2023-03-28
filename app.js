@@ -219,7 +219,7 @@ app.post('/api/signup', (req, res) => {
 });
 
 app.post('/api/forgot-password/', (req, res) => {
-
+    /* Email should be sendt here */
 });
 
 app.get('/logout/', (req, res) => {
