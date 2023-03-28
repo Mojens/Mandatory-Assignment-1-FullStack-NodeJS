@@ -128,8 +128,11 @@ const getRequestPage = templateEngine.renderPage(templateEngine.readPage("./publ
 
 /* Deployment */
 
-const deploymentPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/deployment/deployment.html"), {
-    tabTitle: "Deployment",
+const aboutGitPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/about-git/about-git.html"), {
+    tabTitle: "Git",
+    cssLink: `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/monokai-sublime.min.css">`,
+    scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
+                 <script>hljs.highlightAll();</script>`,
 });
 
 /* Admin pages */
@@ -196,7 +199,7 @@ export default {
     crudPage,
     fetchPage,
     getRequestPage,
-    deploymentPage,
+    aboutGitPage,
     adminPanelPage,
     profilePage,
     editProfilePage,

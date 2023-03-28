@@ -1,0 +1,118 @@
+<main>
+    <div class="container mt-5">
+        <h1 class="mb-4">Git & Git-commands</h1>
+        <div id="git-introduction">
+            <h2 class="mb-4 mt-5">Introduction</h2>
+            <p>
+                We use git to keep track of our code.<br>
+                We use it to work on the same code with multiple people.<br>
+                We use it to keep track of changes.<br>
+            </p>
+            <p>
+                You need to install git on your computer to use it.<br>
+                You can download git <a href="https://git-scm.com/downloads" target="_blank">here</a>.<br>
+                <b>Here is some examples of git-commands:</b>
+            </p>
+        </div>
+        <div id="git-commands">
+            <pre>
+Initializes a new Git repository
+                    <code class="hljs javascript" style="width: 15%;">
+      git init
+                    </code>
+                </pre>
+
+            <pre>
+Clones a repository remotely
+                    <code class="hljs javascript" style="width: 15%;">
+    git clone [url]
+                    </code>
+                </pre>
+
+            <pre>
+Adds a file to the staging area, so its ready to be committed
+                    <code class="hljs javascript" style="width: 15%;">
+    git add [file]
+    // or
+    git add .
+                    </code>
+                </pre>
+
+            <pre>
+Commits the changes to the repository with a message
+                    <code class="hljs javascript" style="width: 20%;">
+    git commit -m [message]
+                    </code>
+                </pre>
+
+            <pre>
+Displays the current status of the repository
+                    <code class="hljs javascript" style="width: 51%;">
+      git status
+      // Example
+
+On branch main
+Your branch is behind 'origin/main' by 2 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   app.js
+	modified:   public/components/xxxx/xxxxx.html
+	modified:   public/components/xxxx/xxxxx.html
+	deleted:    public/pages/xxxx/xxxxx.html
+	modified:   util/xxxxx.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	public/pages/xxxxxxxxxx/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+                    </code>
+So you can see that there are some changes that are not staged for commit.
+So you can see modified files and deleted files, in that way you are sure that you are not missing anything.
+                </pre>
+            <pre>
+Lists all branches in the repository
+                    <code class="hljs javascript" style="width: 15%;">
+      git branch
+                    </code>
+                </pre>
+
+            <pre>
+Switches to an existing branch in the repository, and add -b to create a new branch
+                    <code class="hljs javascript" style="width: 20%;">
+    git checkout [branch]
+                    </code>
+                </pre>
+            <pre>
+Merges the specified branch into the current branch
+                    <code class="hljs javascript" style="width: 20%;">
+     git merge [branch]
+                    </code>
+                </pre>
+            <pre>
+Fetches and merges changes from a remote repository
+                <code class="hljs javascript" style="width: 15%;">
+      git pull
+                </code>
+So in a case where you are working with someone else, and you want to get the latest changes, you can use this command.
+            </pre>
+            <pre>
+Pushes the committed changes.
+                <code class="hljs javascript" style="width: 15%;">
+      git push
+                </code>
+            </pre>
+            <pre>
+Displays a log of commits
+                <code class="hljs javascript" style="width: 15%;">
+      git log
+                </code>
+            </pre>
+
+
+        </div>
+    </div>
+</main>

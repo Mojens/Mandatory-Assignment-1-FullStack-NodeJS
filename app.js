@@ -87,8 +87,8 @@ app.get('/restapi/get-request/', (req, res) => {
 
 // Deployment
 
-app.get('/deployment/', (req, res) => {
-    res.send(pageGenerator.deploymentPage);
+app.get('/git/', (req, res) => {
+    res.send(pageGenerator.aboutGitPage);
 });
 
 /* Admin Pages */
