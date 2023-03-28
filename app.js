@@ -238,10 +238,11 @@ app.get('*', function (req, res) {
 });
 
 // Server
-const port = 8080;
-app.listen(port, (error) => {
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, (error) => {
     if (error) {
         console.log(error);
     }
-    console.log(`Server started on port ${port}`);
+    console.log(`Server started on port ${PORT}`);
 });
