@@ -120,6 +120,37 @@
                     </code>
                     </pre>
             </div>
+            <div id="loop-methods">
+                <h3 class="mt-5 mb-4">Loop methods</h3>
+                <p>
+                    There are a few methods that can be used in loops.<br>
+                    <b>Here is some examples:</b>
+                </p>
+                <pre>
+Example 1.
+                    <code class="hljs javascript w-50">
+    const numbers = [1, 2, 3, 4, 5, 6];
+    const oddNumbers = numbers.filter(number => number % 2 !== 0);
+    console.log(oddNumbers);
+                    </code>
+Output: [1, 3, 5]
+filter is a method that can be used on arrays.<br>
+It takes a function as a parameter and returns a new array with all the elements that pass the
+condition.
+                    </pre>
+                <pre>
+Example 2.
+                    <code class="hljs javascript w-75">
+    const randomWords = ['hello', 'world', 'javascript'];
+    const capitalizedRandomWords = randomWords.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+    console.log(capitalizedRandomWords);
+                    </code>
+Output: ["Hello", "World", "Javascript"]
+map is a method that can be used on arrays.<br>
+It takes a function as a parameter and returns a new array with the results of calling the function
+on every element in the array.
+                    </pre>
+            </div>
         </div>
     </div>
 </main>
