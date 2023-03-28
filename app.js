@@ -23,64 +23,64 @@ app.get('/login/', (req, res) => {
 
 // JavaScript
 
-app.get('/variables/', (req, res) => {
+app.get('/javascript/variables/', (req, res) => {
     res.send(pageGenerator.variablesPage);
 });
 
-app.get('/clean-code/', (req, res) => {
+app.get('/javascript/clean-code/', (req, res) => {
     res.send(pageGenerator.cleanCodePage);
 });
 
-app.get('/callback-functions/', (req, res) => {
+app.get('/javascript/callback-functions/', (req, res) => {
     res.send(pageGenerator.callbackFunctionsPage);
 });
 
-app.get('/loopsAndArray/', (req, res) => {
+app.get('/javascript/loopsAndArray/', (req, res) => {
     res.send(pageGenerator.loopsAndArrayPage);
 });
 
-app.get('/time/', (req, res) => {
+app.get('/javascript/time/', (req, res) => {
     res.send(pageGenerator.timePage);
 });
 
 // Node.js
 
-app.get('/express-nodemon/', (req, res) => {
+app.get('/nodejs/express-nodemon/', (req, res) => {
     res.send(pageGenerator.expressNodemonPage);
 });
 
-app.get('/package-json', (req, res) => {
+app.get('/nodejs/package-json', (req, res) => {
     res.send(pageGenerator.packageJsonPage);
 });
 
-app.get('/server-rendering', (req, res) => {
+app.get('/nodejs/server-rendering', (req, res) => {
     res.send(pageGenerator.serverRenderingPage);
 });
 
-app.get('/client-server-redirection', (req, res) => {
+app.get('/nodejs/client-server-redirection', (req, res) => {
     res.send(pageGenerator.clientServerRedirectionPage);
 });
 
-app.get('/type-module', (req, res) => {
+app.get('/nodejs/type-module', (req, res) => {
     res.send(pageGenerator.typeModulePage);
 });
 
 
 // Rest API - pages
 
-app.get('/api-convention/', (req, res) => {
+app.get('/restapi/api-convention/', (req, res) => {
     res.send(pageGenerator.apiConventionPage);
 });
 
-app.get('/crud/', (req, res) => {
+app.get('/restapi/crud/', (req, res) => {
     res.send(pageGenerator.crudPage);
 });
 
-app.get('/fetch/', (req, res) => {
+app.get('/restapi/fetch/', (req, res) => {
     res.send(pageGenerator.fetchPage);
 });
 
-app.get('/get-request/', (req, res) => {
+app.get('/restapi/get-request/', (req, res) => {
     res.send(pageGenerator.getRequestPage);
 });
 
