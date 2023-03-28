@@ -1,7 +1,7 @@
 document.getElementById("sign-in-btn").addEventListener("click", async function () {
     const username = document.getElementById("sign-in-floating-username").value
     const password = document.getElementById("sign-in-floating-password").value
-    const response = await fetch('/auth/', {
+    const response = await fetch('/api/auth/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -49,7 +49,7 @@ document.getElementById("sign-up-btn").addEventListener("click", async function 
         }
         console.log(user);
         console.log(JSON.stringify(user))
-        const response = await fetch('/signup', {
+        const response = await fetch('/api/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

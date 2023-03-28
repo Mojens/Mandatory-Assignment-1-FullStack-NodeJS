@@ -4,6 +4,7 @@ import pageGenerator from './util/pageGenerator.js';
 import { userList, getNextId } from './util/users.js';
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // This is needed to be able to read the body of the request from the client in the post request 
 app.use(session({
     secret: 'RETWEW123$&123!!6//8321%&/€#WW', // A long, random string used to sign the session ID cookie to prevent tampering or spoofing.
     resave: false, // Determines whether to save the session to the store on every request. true saves even if not modified, false saves only if modified.
@@ -129,6 +130,10 @@ app.get('/admin/new-doc-page/', (req, res) => {
     }
 });
 
+app.post('/api/newpage' , (req, res) => {
+    console.log(req.body);
+});
+
 
 
 
@@ -136,7 +141,7 @@ app.get('/admin/new-doc-page/', (req, res) => {
 
 /* auth */
 
-app.put('/users/:id', (req, res) => {
+app.put('/api/users/:id', (req, res) => {
     const userId = req.session.userId;
     const id = Number(req.params.id);
     if (userId) {
@@ -170,7 +175,7 @@ app.put('/users/:id', (req, res) => {
 });
 
 
-app.post('/auth/', (req, res) => {
+app.post('/api/auth/', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
     const user = userList.find(user => user.username.toLowerCase() === username.toLowerCase());
@@ -192,7 +197,7 @@ app.post('/auth/', (req, res) => {
     }
 });
 
-app.post('/signup', (req, res) => {
+app.post('/api/signup', (req, res) => {
     const UUID = getNextId();
     const username = req.body.username;
     const email = req.body.email;
@@ -213,7 +218,7 @@ app.post('/signup', (req, res) => {
     }
 });
 
-app.post('/forgot-password/', (req, res) => {
+app.post('/api/forgot-password/', (req, res) => {
 
 });
 

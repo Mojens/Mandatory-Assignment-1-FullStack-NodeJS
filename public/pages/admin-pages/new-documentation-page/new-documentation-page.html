@@ -1,5 +1,31 @@
 <main>
-    <div class="layout-container">
-      <div class="main-content" style="width: 80%;">
-        <h1>New documentation page</h1>
-      </div>
+  <div class="layout-container">
+    <div class="main-content" style="width: 80%;">
+      <h1 class="text-center mb-5">New Documentation Page</h1>
+      <form method="post" action="/api/newpage">
+        <div class="form-group">
+          <label for="url">URL:</label>
+          <input type="text" class="form-control" id="url" name="url" placeholder="/httpmethods">
+        </div>
+        <div class="form-group">
+          <label for="category">Category:</label>
+          <select class="form-control" id="category" name="category">
+            <option value="javascript" selected disabled>Choose category</option>
+            <option value="javascript">JavaScript</option>
+            <option value="nodejs">Node.js</option>
+            <option value="nodejs">Rest API</option>
+            <option value="tools">Tools</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" class="form-control" id="title" name="title" placeholder="HTTP Methods">
+        </div>
+        <div class="form-group">
+          <label for="content">Content:</label>
+          <textarea class="form-control" id="content" name="content" rows="10"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-5 mb-5">Submit</button>
+      </form>
+    </div>

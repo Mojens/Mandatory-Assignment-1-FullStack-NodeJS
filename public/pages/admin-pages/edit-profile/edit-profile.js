@@ -23,7 +23,7 @@ document.getElementById("edit-profile-btn").addEventListener("click", () => {
             updatedUser.password = newPassword;
         }
         
-        fetch('/users/' + UUID, {
+        fetch('/api/users/' + UUID, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
