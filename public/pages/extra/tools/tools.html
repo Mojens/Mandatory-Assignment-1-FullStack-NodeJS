@@ -4,20 +4,136 @@
         <div id="tools-introduction">
             <h2 class="mb-4 mt-5">Introduction</h2>
             <p>
-                This page contains a list of <b>tools</b> and <b>modules</b> that I use for my projects and what we have learned about
+                This page contains a list of <b>tools</b> and <b>modules</b> that I use for my projects and what we have
+                learned about
                 so far in this semester.
             </p>
         </div>
         <div id="tools-fsModule">
             <h2 class="mb-4 mt-5">fs Module</h2>
-        </div>
-        <div id="tools-escape">
+            <div id="fsModule-introduction">
+                <h3 class="mb-4 mt-5">Introduction</h3>
+                <p>
+                    The <b>fs</b> module is a part of the <b>Node.js</b> library. It is used to work with files on
+                    your computer. It allows you read files and create files.
+                </p>
+                <p>
+                    To use the <b>fs</b> module, you must import it into your file.
+                </p>
+                <pre><code style="width: 20%;">    import fs from "fs";</code></pre>
+            </div>
+            <div id="fsModule-example">
+                <h3 class="mb-4 mt-5">Example</h3>
+                <p>
+                    In this example, we will read some compenents from some files and put them together.
+                </p>
+                <pre>
+templateEngine.js
+                    <code class="w-75">
+    import fs from "fs";
 
+    function renderPage(page, config = {}) {
+
+        const navbar = fs.readFileSync("./public/components/navbar/navbar.html").toString()
+            .replace("$TAB_TITLE", config.tabTitle || "Upper")
+            .replace("$CSS_LINK", config.cssLink || "");
+    
+        const footer = fs.readFileSync("./public/components/footer/footer.html").toString()
+            .replace("$FOOTER_YEAR", `© ${new Date().getFullYear()} Upper`);
+    
+        return navbar + page + footer;
+    };
+    
+    function readPage(pagePath) {
+        return fs.readFileSync(pagePath).toString()
+    };
+                    </code>
+                </pre>
+                <p>
+                    readPage function returns the page as a string. <br>
+                    renderPage function returns the page with the navbar and footer.
+                </p>
+                <pre>
+app.js
+                    <code class="w-75">
+    import templateEngine from "./util/templateEngine.js";
+
+    const frontpage = templateEngine.readPage("./public/pages/frontpage/frontpage.html");
+    const frontpagePage = templateEngine.renderPage(frontpage, {
+        tabTitle: "Upper | Home"
+    });
+    
+    app.get("/", (req, res) => {
+        // readFileSync is a blocking function, so it will wait for the file to be read before continuing
+        // res.sendFile(path.resolve("public/pages/frontpage/frontpage.html"))
+        res.send(frontpagePage);
+    });
+                    </code>
+                </pre>
+                <p>
+                    In the example above, we have a <b>templateEngine</b> module that contains two functions.<br> The
+                    <b>renderPage</b> function takes two arguments. <br>
+                    The first argument is the page that we want to render. <br>
+                    The second argument is an object that contains the configuration for the page.<br>
+                    The <b>readPage</b> function takes one argument, which is the path to the page that we want to read.
+                </p>
+            </div>
         </div>
         <div id="tools-sentiment">
             <h2 class="mb-4 mt-5">Sentiment</h2>
+            <div id="sentiment-introduction">
+                <h3 class="mb-4 mt-5">Introduction</h3>
+                <p>
+                    The <b>sentiment</b> module is a part of the <b>Node.js</b> library. It is used to analyze text
+                    and return a score based on the text. It allows you to analyze text and get a score based on the
+                    text.
+                </p>
+                <p>
+                    To use the <b>sentiment</b> module, you must import it into your file and initialize it.
+                </p>
+                <pre><code class="w-25">  
+  import Sentiment from "sentiment";
+  const sentiment = new Sentiment();
+                </code></pre>
+
+            </div>
+            <div id="sentiment-example">
+                <h3 class="mb-4 mt-5">Example</h3>
+                <p>
+                    In this example, we will use the <b>sentiment</b> module to analyze a joke and return the joke if it scores above 0.
+                </p>
+                <pre>
+jokes.js
+                    <code class="w-75">
+    import Sentiment from "sentiment"
+    const sentiment = new Sentiment()
+    
+    async function getJoke() {
+        const URL = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,sexist,explicit";
+        const response = await fetch(URL)
+        const result = await response.json()
+    
+        const jokeToAnalyze = result.joke || `${result.setup} ${result.delivery}`
+    
+        const { score } = sentiment.analyze(jokeToAnalyze)
+    
+        if (score < 0) {
+            return await getJoke()
+        }
+        return result
+    }
+    
+    export default getJoke
+                    </code>
+                </pre>
+                <p>
+                    In the example above, we have a <b>getJoke</b> function that returns a joke. <br>
+                    The function uses the <b>sentiment</b> module to analyze the joke and returns a new joke if the score is below 0.
+                </p>
+            </div>
 
         </div>
+
         <div id="tools-express-session">
             <h2 class="mb-4 mt-5">Express Session</h2>
 
@@ -27,7 +143,67 @@
         </div>
 
         <div id="tools-escape">
+
             <h2 class="mb-4 mt-5">Escape</h2>
+            <div id="escape-introduction">
+                <h3 class="mb-4 mt-5">Introduction</h3>
+                <p>
+                    The <b>escape</b> module is a part of the <b>Node.js</b> library. It is used to escape strings. It
+                    allows you to escape HTML, JavaScript, and URL strings.
+                </p>
+                <p>
+                    To use the <b>escape</b> module, you must import it into your file.
+                </p>
+                <pre><code class="w-25">  import escape from "escape-html";</code></pre>
+            </div>
+            <div id="escape-example">
+                <h3 class="mb-4 mt-5">Example</h3>
+                <p>
+                    In this example, we will use escaping to prevent XSS attacks when we for example get data from a
+                    external API.<br>
+                    This way we can make sure that the data is safe to use, and there is not for example any
+                    &lt;script&gt; tags inside.
+                </p>
+                <pre>
+templateEngine.js
+                    <code class="w-75">
+    import getJoke from <a style="text-decoration: none;" href="#sentiment-example">"./jokes.js"</a>;
+    import escape from "escape-html";
+
+    async function renderJokePage() {
+        const path = "./public/pages/jokes/jokes.html";
+        let jokePage = readPage(path);
+        const joke = await getJoke();
+    
+        if (joke.joke) {
+            jokePage = jokePage.replace("$JOKE_HTML_CONTENT", "&lt;h3&gt;" + joke.joke + "&lt;/h3&gt;");
+        } else if (joke.setup && joke.delivery) {
+            const jokeHtmlContent = `
+                &lt;h3&gt;${escape(joke.setup)}&lt;/h3&gt;
+                &lt;h4&gt;...&lt;/h4&gt;
+                &lt;h3&gt;${escape(joke.delivery)}&lt;/h3&gt;
+            `;
+            jokePage = jokePage.replace("$JOKE_HTML_CONTENT", jokeHtmlContent);
+        } else {
+            jokePage = jokePage.replace("$JOKE_HTML_CONTENT", "&lt;h3&gt;No jokes for you.&lt;/h3&gt;");
+        }
+    
+        const constructedPage = renderPage(jokePage, {
+            tabTitle: "Upper | Jokes",
+            cssLink: "&lt;link rel=&quot;stylesheet&quot; href=&quot;/pages/jokes/jokes.css&quot;&gt;"
+        });
+        return constructedPage;    
+    }
+                        </code>
+                </pre>
+                <p>
+                    In the example above, we have a <b>renderJokePage</b> function that returns the joke page with the
+                    joke.<br>
+                    We use the <b>escape</b> module to escape the joke, so that we can make sure that there is no
+                    &lt;script&gt; tags inside the joke.
+                </p>
+            </div>
+
         </div>
 
         <div id="tools-DOM-Purify">
@@ -37,7 +213,8 @@
         <div id="tools-express">
             <h2 class="mb-4 mt-5">Express</h2>
             <p>
-                We have covered <b>Express</b> on this page <a href="/nodejs/express-nodemon#express-nodemon-express">here.</a>
+                We have covered <b>Express</b> on this page <a
+                    href="/nodejs/express-nodemon#express-nodemon-express">here.</a>
             </p>
         </div>
         <div id="tools-nodemon">
@@ -58,6 +235,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="#tools-fsModule">fs Module</a>
             </li>
+            <ul class="inner-ul">
+                <li class="nav-item">
+                    <a class="nav-link" href="#fsModule-introduction">Introduction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#fsModule-example">Example</a>
+                </li>
+            </ul>
             <li class="nav-item">
                 <a class="nav-link" href="#tools-sentiment">Sentiment</a>
             </li>
@@ -68,10 +253,18 @@
                 <a class="nav-link" href="#tools-cross-env">Cross-env</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#tools-DOM-Purify">DOMPurify</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="#tools-escape">Escape</a>
+            </li>
+            <ul class="inner-ul">
+                <li class="nav-item">
+                    <a class="nav-link" href="#escape-introduction">Introduction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#escape-example">Example</a>
+                </li>
+            </ul>
+            <li class="nav-item">
+                <a class="nav-link" href="#tools-DOM-Purify">DOMPurify</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#tools-express">Express</a>
