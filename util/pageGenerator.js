@@ -58,6 +58,13 @@ const timePage = templateEngine.renderPage(templateEngine.readPage("./public/pag
                  <script>hljs.highlightAll();</script>`,
 });
 
+const xssPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/cross-site-scripting/xss.html"), {
+    tabTitle: "JS | Cross Site Scripting",
+    cssLink: `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/monokai-sublime.min.css">`,
+    scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
+                 <script>hljs.highlightAll();</script>`,
+});
+
 
 /* Node.js */
 
@@ -205,6 +212,7 @@ export default {
     editProfilePage,
     newDocPage,
     pageNotFound,
+    xssPage
 };
 
 

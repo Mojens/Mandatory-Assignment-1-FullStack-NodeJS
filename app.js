@@ -43,6 +43,10 @@ app.get('/javascript/time/', (req, res) => {
     res.send(pageGenerator.timePage);
 });
 
+app.get('/javascript/xss/', (req, res) => {
+    res.send(pageGenerator.xssPage);
+});
+
 // Node.js
 
 app.get('/nodejs/express-nodemon/', (req, res) => {
