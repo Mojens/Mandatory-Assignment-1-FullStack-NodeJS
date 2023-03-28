@@ -58,7 +58,7 @@ const timePage = templateEngine.renderPage(templateEngine.readPage("./public/pag
                  <script>hljs.highlightAll();</script>`,
 });
 
-const toolsPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/tools/tools.html"), {
+const toolsPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/extra/tools/tools.html"), {
     tabTitle: "JS | Cross Site Scripting",
     cssLink: `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/monokai-sublime.min.css">`,
     scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
@@ -135,7 +135,7 @@ const getRequestPage = templateEngine.renderPage(templateEngine.readPage("./publ
 
 /* Deployment */
 
-const aboutGitPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/about-git/about-git.html"), {
+const aboutGitPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/extra/about-git/about-git.html"), {
     tabTitle: "Git",
     cssLink: `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/monokai-sublime.min.css">`,
     scriptLink: `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>

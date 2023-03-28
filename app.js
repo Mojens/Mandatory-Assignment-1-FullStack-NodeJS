@@ -43,7 +43,7 @@ app.get('/javascript/time/', (req, res) => {
     res.send(pageGenerator.timePage);
 });
 
-app.get('/nodejs/tools/', (req, res) => {
+app.get('/extra/tools/', (req, res) => {
     res.send(pageGenerator.toolsPage);
 });
 
@@ -89,9 +89,9 @@ app.get('/restapi/get-request/', (req, res) => {
 });
 
 
-// Deployment
+// About git
 
-app.get('/git/', (req, res) => {
+app.get('/extra/git/', (req, res) => {
     res.send(pageGenerator.aboutGitPage);
 });
 
