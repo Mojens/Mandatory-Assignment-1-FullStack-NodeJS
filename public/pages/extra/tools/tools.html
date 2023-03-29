@@ -449,12 +449,71 @@ templateEngine.js
             <h2 class="mb-4 mt-5">Nodemailer</h2>
             <div id="nodemailer-introduction">
                 <h3 class="mb-4 mt-5">Introduction</h3>
+                <p>
+                    Nodemailer is a module for Node.js to send emails.<br>
+                    I have used it to send emails from my server when you fill the forgot-password form.
+                </p>
+                <p>
+                    To use the <b>Nodemailer</b> module we must import it, and then we can use the <b>createTransport</b>
+                    function.
+                </p>
+                <pre><code class="w-25">import nodemailer from 'nodemailer';</code></pre>
             </div>
             <div id="nodemailer-installation">
                 <h3 class="mb-4 mt-5">Installation</h3>
+                <p>
+                    To install the <b>Nodemailer</b> module, you must run the following command in our terminal.
+                </p>
+                <pre><code class="w-25">        npm install nodemailer</code></pre>
             </div>
             <div id="nodemailer-example">
                 <h3 class="mb-4 mt-5">Example</h3>
+                <p>
+                    Here is an example of how we can use the <b>Nodemailer</b> module to send emails.
+                </p>
+                <pre>
+app.js
+                    <code class="w-75">
+    import nodemailer from 'nodemailer';
+    const transporter = nodemailer.createTransport({
+        host: 'smtp.ethereal.email',
+        port: 587,
+        auth: {
+            user: 'youremail@gmail.com',
+            pass: 'SeCuRePaSsWoRd123'
+        },
+        secure: false
+    });
+
+    app.post('/api/forgot-password/', (req, res) => {
+        const clientEmail = req.body.forgotPasswordMail;
+        const mailData = {
+            from: 'testMail@outlook.dk',
+            to: clientEmail,
+            subject: 'Login Details',
+            text: 'Login with username: Admin123 and password: test123',
+            html: '&lt;p&gt;Login with username: Admin123 and password: test123&lt;/p&gt;'
+        };
+        transporter.sendMail(mailData, function (err, info) {
+            if(err)
+              console.log(err)
+            else
+              console.log(info);
+              res.redirect("/login");
+         });
+    });
+                    </code>
+                </pre>
+                <p>
+                    So here its just running in development mode, so we are using the <b>ethereal.email</b> SMTP server.<br>
+                    But in production it would be better to use a read SMTP server like <b>gmail</b> or <b>outlook</b>.<br>
+                    The transporter is info about the SMTP server and who is sending the email.<br>
+                    The <b>sendMail</b> function will then send the email to the client, also it takes two parameters, the <b>mailData</b> and a callback function.<br>
+                    MailData is info about the mail that we want to send, and the callback function is a function that
+                    will run when the email is sent.
+
+
+                </p>
             </div>
         </div>
 
