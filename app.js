@@ -3,7 +3,6 @@ import session from 'express-session'; // This does i can create a session for t
 import pageGenerator from './util/pageGenerator.js';
 import { userList, getNextId } from './util/users.js';
 import nodemailer from 'nodemailer';
-import templateEngine from './util/templateEngine.js';
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // This is needed to be able to read the body of the request from the client in the post request 
