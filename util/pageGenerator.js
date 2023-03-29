@@ -17,7 +17,6 @@ const loginPage = templateEngine.renderPage(templateEngine.readPage("./public/pa
     <link href="/pages/auth/auth.css" rel="stylesheet">
     `
 });
-
 /* JavaScript */
 
 const variablesPage = templateEngine.renderPage(templateEngine.readPage("./public/pages/javascript/variables/variables.html"), {
@@ -212,7 +211,7 @@ export default {
     editProfilePage,
     newDocPage,
     pageNotFound,
-    toolsPage
+    toolsPage,
 };
 
 

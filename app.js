@@ -2,6 +2,8 @@ import express from 'express';
 import session from 'express-session'; // This does i can create a session for the user and store the user id in the session so i can check if the user is logged in or not
 import pageGenerator from './util/pageGenerator.js';
 import { userList, getNextId } from './util/users.js';
+import nodemailer from 'nodemailer';
+import templateEngine from './util/templateEngine.js';
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // This is needed to be able to read the body of the request from the client in the post request 
@@ -10,6 +12,15 @@ app.use(session({
     resave: false, // Determines whether to save the session to the store on every request. true saves even if not modified, false saves only if modified.
     saveUninitialized: true //  Determines whether to create a session even if not modified during the request. true creates session even for anonymous users, false only creates if modified.
 }));
+const transporter = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
+    auth: {
+        user: 'karlie.padberg77@ethereal.email',
+        pass: 'MEhrEd75Rq6S4JfDKA'
+    },
+    secure: false
+});
 
 app.use(express.static("public"));
 
@@ -134,7 +145,8 @@ app.get('/admin/new-doc-page/', (req, res) => {
     }
 });
 
-app.post('/api/newpage' , (req, res) => {
+app.post('/api/newpage/' , (req, res) => {
+    console.log(req.body);
     const userId = req.session.userId;
     if (userId) {
         console.log(req.body);
@@ -228,7 +240,21 @@ app.post('/api/signup', (req, res) => {
 });
 
 app.post('/api/forgot-password/', (req, res) => {
-    /* Email should be sendt here */
+    const clientEmail = req.body.forgotPasswordMail;
+    const mailData = {
+        from: 'testMail@outlook.dk',
+        to: clientEmail,
+        subject: 'Login Details',
+        text: 'Login with username: Admin123 and password: test123',
+        html: '<p>Login with username: Admin123 and password: test123</p>'
+    };
+    transporter.sendMail(mailData, function (err, info) {
+        if(err)
+          console.log(err)
+        else
+          console.log(info);
+          res.redirect("/login");
+     });
 });
 
 app.get('/logout/', (req, res) => {
