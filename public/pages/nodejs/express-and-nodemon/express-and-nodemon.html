@@ -27,7 +27,7 @@
                 </p>
                 <pre>
                     <code class=" justify-content-center align-content-center w-50">
-    const express = require('express')
+    import express from 'express';
     const app = express()
 
     app.get('/', (req, res) => {
@@ -85,14 +85,14 @@
                 <pre>
                     <code class=" justify-content-center align-content-center" style="width: 60%;">
     const listOfNames = []
-    app.post('/addName', (req, res) => {
+    app.post('/api/addName', (req, res) => {
         listOfNames.push(req.body.name)
         res.send('Got a POST request with the name: ' + req.body.name)
     })
                     </code>
                 </pre>
                 <p>
-                    It means that when the client sends a POST request to the path (/addName) with the key "name" in the
+                    It means that when the client sends a POST request to the path (/api/addName) with the key "name" in the
                     body, <br>the app will respond with
                     "Got a POST request with the name: + (the value of the key that was sent with the body)".
                 </p>
@@ -103,8 +103,8 @@
             <h2>Nodemon</h2>
             <p>
                 Nodemon is a tool to help you develop node.js applications.<br>
-                What nodemon does is that it watches for any changes in your source and automatically restarts your
-                server.<br>
+                What nodemon do is that it watches for any changes in your code and automatically restarts your
+                server when the code changes.<br>
                 This is very useful when you are developing an application and you want to see the changes you made
                 immediately.<br>
                 Also nodemon runs your application and with express you can create a server and run it.
