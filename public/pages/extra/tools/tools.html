@@ -254,6 +254,72 @@ app.js
         </div>
         <div id="tools-cross-env">
             <h2 class="mb-4 mt-5">Cross-env</h2>
+            <div id="cross-env-introduction">
+                <h3 class="mb-4 mt-5">Introduction</h3>
+                <p>
+                    The <b>cross-env</b> module is a part of the <b>Node.js</b> library. It is used to set environment
+                    variables.<br>
+                    It allows you to set environment variables for your project. <br>
+                    I've used this to set the <b>PORT</b> environment variable.
+                </p>
+            </div>
+            <div id="cross-env-installation">
+                <h3 class="mb-4 mt-5">Installation</h3>
+                <p>
+                    To install the <b>cross-env</b> module, you must run the following command in your terminal.
+                </p>
+                <pre><code class="w-25">    npm install cross-env</code></pre>
+            </div>
+            <div id="cross-env-example">
+                <h3 class="mb-4 mt-5">Example</h3>
+                <p>
+                    In this example, we will use the <b>cross-env</b> module to set the <b>PORT</b> environment
+                    variable.
+                </p>
+                <pre>
+package.json
+                    <code class="w-50">
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "cross-dev": "cross-env PORT=8080 nodemon app.js",
+        "cross-prod": "cross-env PORT=80 node app.js",
+        "dev": "PORT=8080 nodemon app.js",
+        "prod": "PORT=80 node app.js"
+      },
+                    </code>
+                </pre>
+                <p>
+                    In the example above, we have two scripts that set the <b>PORT</b> environment variable to
+                    <b>8080</b> and <b>80</b>. <br>
+                    We can use the <b>cross-dev</b> and <b>cross-prod</b> scripts to set the <b>PORT</b> environment
+                    variable on Windows. <br>
+                    We can use the <b>dev</b> and <b>prod</b> scripts to set the <b>PORT</b> environment variable on
+                    Linux.
+                </p>
+                <p>
+                    To use it in our app.js file, we can use the <b>process.env.PORT</b> variable.
+                </p>
+                <pre>
+app.js
+                    <code class="w-50">
+    // Server
+    const PORT = process.env.PORT || 8080;
+    
+    app.listen(PORT, (error) => {
+        if (error) {
+            console.log(error);
+        }
+        console.log(`Server started on port ${PORT}`);
+    });
+                    </code>
+                </pre>
+                <p>
+                    In the example above, we have a <b>PORT</b> variable that is set to the <b>process.env.PORT</b>
+                    variable. <br>
+                    If the <b>process.env.PORT</b> variable is not set as an environment-variable, we set the
+                    <b>PORT</b> variable to <b>8080</b>.
+                </p>
+            </div>
         </div>
 
         <div id="tools-escape">
@@ -330,6 +396,54 @@ templateEngine.js
 
         <div id="tools-DOM-Purify">
             <h2 class="mb-4 mt-5">DOMPurify</h2>
+            <div id="DOM-Purify-introduction">
+                <h3 class="mb-4 mt-5">Introduction</h3>
+                <p>
+                    The <b>DOMPurify</b> module is used to sanitize HTML. It is used to prevent XSS attacks. <br>
+                    In this case i use it to sanitize on the client side contra the <b>escape</b> module that i use to
+                    sanitize on the server side.
+                </p>
+                <p>
+                    To use the <b>DOMPurify</b> module we must import it, and then we can use the <b>sanitize</b>
+                    function.
+                </p>
+                <pre><code class="w-75">        &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"&gt; &lt;/script&gt;</code></pre>
+            </div>
+            <div id="DOM-Purify-installation">
+                <h3 class="mb-4 mt-5">Installation</h3>
+                <p>
+                    Inside of our javascript file, we can call the <b>sanitize</b> function.<br>
+                    Thats because we have imported the <b>DOMPurify</b> module inside of our HTML file.
+                </p>
+            </div>
+            <div id="DOM-Purify-example">
+                <h3 class="mb-4 mt-5">Example</h3>
+                <p>
+                    Here is an example of how we can use the <b>DOMPurify</b> module to sanitize HTML.
+                </p>
+                <pre>
+                    <code class="w-50">
+    const dirty = "&lt;script&gt;alert(&quot;I am a dirty string!&quot;)&lt;/script&gt;";
+    const clean = DOMPurify.sanitize(dirty);
+    console.log(clean); // &lt;!--&gt;alert(&quot;I am a dirty string!&quot;)&lt;!--&gt;
+                    </code>
+    // Output: alert("I am a dirty string!")
+    // Instead of: &lt;script&gt;alert(&quot;I am a dirty string!&quot;)&lt;/script&gt;
+                </pre>
+                <p>
+                    In the example above, we have a <b>dirty</b> variable that contains a string with a &lt;script&gt;
+                    tag.<br>
+                    We then call the <b>sanitize</b> function from the <b>DOMPurify</b> module, and pass in the
+                    <b>dirty</b> variable.<br>
+                    The <b>sanitize</b> function will then return a <b>clean</b> variable that contains the same string
+                    as the <b>dirty</b> variable, but without the &lt;script&gt; tag.
+                </p>
+                <p>
+                    This is a easier approach than using the <b>escape</b> module, because we dont have to send the data
+                    to the server.<br>
+                    But we can sanitize the data on the client side.
+                </p>
+            </div>
         </div>
 
         <div id="tools-express">
@@ -397,6 +511,17 @@ templateEngine.js
             <li class="nav-item">
                 <a class="nav-link" href="#tools-cross-env">Cross-env</a>
             </li>
+            <ul class="inner-ul">
+                <li class="nav-item">
+                    <a class="nav-link" href="#cross-env-introduction">Introduction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#cross-env-installation">Installation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#cross-env-example">Example</a>
+                </li>
+            </ul>
             <li class="nav-item">
                 <a class="nav-link" href="#tools-escape">Escape</a>
             </li>
@@ -414,6 +539,18 @@ templateEngine.js
             <li class="nav-item">
                 <a class="nav-link" href="#tools-DOM-Purify">DOMPurify</a>
             </li>
+            <ul class="inner-ul">
+                <li class="nav-item">
+                    <a class="nav-link" href="#DOM-Purify-introduction">Introduction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#DOM-Purify-installation">Installation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#DOM-Purify-example">Example</a>
+                </li>
+
+            </ul>
             <li class="nav-item">
                 <a class="nav-link" href="#tools-express">Express</a>
             </li>

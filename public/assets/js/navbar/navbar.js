@@ -3,7 +3,6 @@ const adminPanelNavbar = document.getElementById("admin-panel-navbar");
 const loggedInUser = document.getElementById("logged-in-user");
 
 
-
 if (localStorage.getItem("token")) {
     loginBtn.innerHTML = DOMPurify.sanitize(`
 <a class="nav-link" href="/logout"><button class="btn btn-outline-success"

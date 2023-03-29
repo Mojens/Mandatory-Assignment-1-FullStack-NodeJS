@@ -6,10 +6,10 @@
     margin-left: 2%;
     overflow-y: auto;
     height: 90%;
-    padding-bottom: 1%;
+    padding-bottom: 3%;
     border-right: 1px solid #ccc;
     background-color: #fff;
-    
+
 }
 .inner-ul {
     list-style-type: none;
