@@ -42,14 +42,14 @@
                 the client.<br>
             </p>
             <p>
-                Here is just an example how you can accomplish server-side rendering in node.js.
+                Here is just an example how you can do server-side rendering in node.js.
                 <br>In this case we have a function called readPage and and a function called renderPage.<br>
                 The <b>readPage</b> function reads the html file <br>
                 The <b>renderPage</b> function renders the html file, and puts different components together with the html page.
             </p>
-            <p style="margin-bottom: 0;padding-bottom: 0;margin-top: 0;"><b>templateEngine.js</b></p>
             <pre style="margin-top: 0;padding-top: 0;">
-                        <code class="hljs javascript justify-content-center align-content-lg-center w-75">
+templateEngine.js
+                <code class="hljs javascript justify-content-center align-content-lg-center w-75">
     import fs from "fs";
     // fs is a node.js module, which allows to work with the html files
 
@@ -80,8 +80,8 @@
     };
                         </code>
                     </pre>
-                    <p style="margin-bottom: 0;padding-bottom: 0;margin-top: 0;"><b>app.js</b></p>
                     <pre>
+app.js
                         <code class="hljs javascript justify-content-center align-content-lg-center w-75">
     import templateEngine from "./util/templateEngine.js";
     // Here we import the templateEngine.js file
