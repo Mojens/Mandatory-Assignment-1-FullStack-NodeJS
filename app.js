@@ -12,11 +12,11 @@ app.use(session({
     saveUninitialized: true //  Determines whether to create a session even if not modified during the request. true creates session even for anonymous users, false only creates if modified.
 }));
 const transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
+    service: "gmail",
     port: 587,
     auth: {
-        user: 'karlie.padberg77@ethereal.email',
-        pass: 'MEhrEd75Rq6S4JfDKA'
+        user: 'keamohammadmnodejs@gmail.com',
+        pass: 'msxcdacvcclglxyn'
     },
     secure: false
 });
