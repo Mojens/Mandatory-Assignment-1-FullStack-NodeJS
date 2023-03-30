@@ -253,6 +253,20 @@ app.post('/api/signup', (req, res) => {
             succes: 'You have successfully signed up!',
             status: 200
         });
+        const mailData = {
+            from: 'testMail@outlook.dk',
+            to: email,
+            subject: 'Login Details',
+            text: `Welcome, this is your new account info\n username: ${username} \n password: ${password}`,
+            html: `Welcome, this is your new account info<br> username: ${username} <br> password: ${password}`
+        }
+        transporter.sendMail(mailData, function (err, info) {
+            if (err)
+                console.log(err)
+            else
+                console.log(info);
+            res.redirect("/login");
+        });
     }
 });
 
@@ -280,6 +294,7 @@ app.get('/logout/', (req, res) => {
 });
 
 /*
+// this is commented out because otherwise the new route that will be created at "/api/newpage/" will not work.
 // 404 - Page not found
 app.get('*', function (req, res) {
     res.send(pageGenerator.pageNotFound);
