@@ -20,7 +20,6 @@ const transporter = nodemailer.createTransport({
     },
     secure: false
 });
-
 app.use(express.static("public"));
 
 app.get('/', (req, res) => {
@@ -154,13 +153,24 @@ app.post('/api/newpage/', (req, res) => {
             url: req.body.url
         }
 
-        app.get(`/${config.category}/${config.url}/`, (req, res) => {
-            res.send(pageGenerator.createdPage(config));
+        const createdPage = pageGenerator.createdPage(config);
+        const endpoint = `/${config.category}/${config.url}/`;
+
+        app.get(endpoint, (req, res) => {
+            res.send(createdPage);
         });
+
+        /*
+        This code is for creating a new page and with a new endpoint.
+        It works but because we dont have a database, the new page will be deleted when the server is restarted.
+        */
+
+        res.redirect(endpoint);
     } else {
         res.redirect('/login');
     }
 });
+
 
 
 
@@ -269,11 +279,12 @@ app.get('/logout/', (req, res) => {
     res.redirect('/');
 });
 
-
+/*
 // 404 - Page not found
 app.get('*', function (req, res) {
     res.send(pageGenerator.pageNotFound);
 });
+*/
 
 // Server
 const PORT = process.env.PORT || 8080;

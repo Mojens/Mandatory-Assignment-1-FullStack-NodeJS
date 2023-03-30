@@ -37,6 +37,7 @@ function readPage(pagePath) {
 };
 
 function createPage(config = {}) {
+    // console.log(config.content);
 
     const tableOfContents = fs.readFileSync("./public/components/table-of-contents/table-of-contents.html").toString()
 
@@ -50,7 +51,8 @@ function createPage(config = {}) {
 
     const title = config.title.replace(/\s/g, '');
 
-    const createdPage = fs.writeFileSync(`./public/pages/${config.category}/${title}.html`, `<main>${config.content}</main>`)
+    fs.writeFileSync(`./public/pages/${config.category}/newPages/${title}.html`, `<main><div class="container mt-5">${config.content}</div></main>`)
+    const createdPage = fs.readFileSync(`./public/pages/${config.category}/newPages/${title}.html`).toString();
 
     return navbar + tableOfContents + createdPage + footer;
 

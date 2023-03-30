@@ -187,7 +187,7 @@ const pageNotFound = templateEngine.renderPage(templateEngine.readPage("./public
     cssLink: `<link href="/components/error-pages/404.css" rel="stylesheet">`,
 });
 
-function createdPage(object){
+function createdPage(object) {
     return templateEngine.createPage(object);
 }
 
