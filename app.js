@@ -144,11 +144,19 @@ app.get('/admin/new-doc-page/', (req, res) => {
     }
 });
 
-app.post('/api/newpage/' , (req, res) => {
-    console.log(req.body);
+app.post('/api/newpage/', (req, res) => {
     const userId = req.session.userId;
     if (userId) {
-        console.log(req.body);
+        const config = {
+            category: req.body.category,
+            title: req.body.title,
+            content: req.body.content,
+            url: req.body.url
+        }
+
+        app.get(`/${config.category}/${config.url}/`, (req, res) => {
+            res.send(pageGenerator.createdPage(config));
+        });
     } else {
         res.redirect('/login');
     }
@@ -168,7 +176,7 @@ app.put('/api/users/:id', (req, res) => {
         const user = userList.find(user => user.UUID === id);
         if (user) {
             if (req.body.username) {
-                user.username = req.body.username; 
+                user.username = req.body.username;
                 console.log(req.body.username);
             }
             if (req.body.email) {
@@ -248,12 +256,12 @@ app.post('/api/forgot-password/', (req, res) => {
         html: '<p>Login with username: Admin123 and password: test123</p>'
     };
     transporter.sendMail(mailData, function (err, info) {
-        if(err)
-          console.log(err)
+        if (err)
+            console.log(err)
         else
-          console.log(info);
-          res.redirect("/login");
-     });
+            console.log(info);
+        res.redirect("/login");
+    });
 });
 
 app.get('/logout/', (req, res) => {

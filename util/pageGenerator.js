@@ -187,6 +187,9 @@ const pageNotFound = templateEngine.renderPage(templateEngine.readPage("./public
     cssLink: `<link href="/components/error-pages/404.css" rel="stylesheet">`,
 });
 
+function createdPage(object){
+    return templateEngine.createPage(object);
+}
 
 export default {
     frontPage,
@@ -212,6 +215,7 @@ export default {
     newDocPage,
     pageNotFound,
     toolsPage,
+    createdPage
 };
 
 
